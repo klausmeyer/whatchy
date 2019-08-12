@@ -1,0 +1,41 @@
+<p>Results:</p>
+
+<%= form_with url: shows_path, local: true do |f| %>
+
+  <table class="table table-striped">
+    <colgroup>
+      <col width="10%">
+      <col width="10%">
+      <col width="40%">
+      <col width="40%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Ref</th>
+        <th>Title</th>
+        <th>Overview</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |result| %>
+        <tr>
+          <td><%= check_box_tag :'shows[]', result.id %></td>
+          <td><%= result.id %></td>
+          <td><strong><%= result.name %></strong> (<%= result.network %>)</td>
+          <td>
+            <% if result.banner.present? %>
+              <%= image_tag result.banner_url %>
+              <br />
+            <% end %>
+
+            <%= truncate result.overview, length: 300 %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+
+<% end %>

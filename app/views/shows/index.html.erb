@@ -1,0 +1,9 @@
+<h2>All Shows</h2>
+
+<% if @shows.any? %>
+  <%= render @shows %>
+<% else %>
+  <p>No Shows available.</p>
+<% end %>
+
+<p><%= link_to 'Add Shows', new_show_path %></p>

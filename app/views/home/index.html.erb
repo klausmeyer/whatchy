@@ -1,2 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h2>Subscriptions</h2>
+
+<% if @shows.any? %>
+  <%= render @shows %>
+<% else %>
+  <p>No Shows found</p>
+<% end %>
+
+<p><%= link_to 'Manage Subscriptions', shows_path %></p>
+
+<hr />

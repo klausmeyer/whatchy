@@ -1,0 +1,15 @@
+<h2>Search</h2>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_with url: search_shows_path, method: :get, local: true do |f| %>
+      <div class="input-group">
+        <%= f.text_field :keywords, class: "form-control" %>
+
+        <div class="input-group-append">
+          <%= f.submit "Search", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

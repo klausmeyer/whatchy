@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col">
+    <% if show.image.present? %>
+      <%= image_tag show.image, width: 150 %>
+    <% end %>
+  </div>
+  <div class="col col-lg-10">
+    <h3><%= show.title %></h3>
+    <p><%= show.overview %></p>
+  </div>
+</div>
+
+<hr />
