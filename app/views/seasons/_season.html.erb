@@ -1,3 +1,9 @@
-<h3>Season <%= season.number %></h3>
-<%= render season.episodes %>
+<h3>
+  <% if season.number == 0 %>
+    Specials
+  <% else %>
+    Season <%= season.number %>
+  <% end %>
+</h3>
+<%= render season.episodes.sorted_by_number %>
 <hr />
