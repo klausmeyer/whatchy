@@ -16,7 +16,7 @@ class ShowsController < ApplicationController
   end
 
   def create
-    params[:shows].each do |ref|
+    Array(params[:shows]).each do |ref|
       Shows::Import.new(ref: ref).call
     end
 
