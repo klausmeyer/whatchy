@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :shows, only: [:index, :show, :new, :create] do
     get :search, on: :collection
+    resource :subscription, only: [:create, :destroy]
   end
 end

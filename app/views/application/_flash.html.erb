@@ -1,0 +1,23 @@
+<% flash_whitelist = %w(success notice error info) %>
+
+<% if (flash.keys & flash_whitelist).any? %>
+  <% flash.each do |type, body| %>
+    <%# only render the usual messages %>
+    <% next unless flash_whitelist.include?(type.to_s) %>
+
+    <%= content_tag :div, class: "alert alert-#{type} alert-flash mb-0 rounded-0" do %>
+      <div class="container">
+        <% if body.kind_of?(Array) %>
+          <ul class="mb-0">
+            <% body.each do |message| %>
+              <%= content_tag(:li, message) %>
+            <% end %>
+          </ul>
+        <% else %>
+          <p class="mb-0"><%= body %></p>
+        <% end %>
+      </div>
+
+    <% end %>
+  <% end %>
+<% end %>

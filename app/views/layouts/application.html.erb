@@ -31,13 +31,9 @@
       </div>
     </nav>
 
-    <div class="container mt-4">
-      <% %w(alert notice).each do |key| %>
-        <% if flash[key] %>
-          <p class="flash"><%= flash[key] %></p>
-        <% end %>
-      <% end %>
+    <%= render "flash" %>
 
+    <div class="container mt-4">
       <%= yield %>
     </div>
   </body>

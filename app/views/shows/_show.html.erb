@@ -8,6 +8,12 @@
     <h3><%= link_to show.title, show %></h3>
     <p><%= show.overview %></p>
     <p><%= show.seasons.without_specials.count %> Seasons</p>
+
+    <% if current_user.subscriptions.where(show: show).none? %>
+      <%= link_to '🐵 Subscribe', show_subscription_path(show), method: :post %>
+    <% else %>
+      <%= link_to '🙈 Unubscribe', show_subscription_path(show), method: :delete %>
+    <% end %>
   </div>
 </div>
 
