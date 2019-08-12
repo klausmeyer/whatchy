@@ -13,13 +13,7 @@ class ShowsController < ApplicationController
 
   def create
     params[:shows].each do |ref|
-      Show.find_or_initialize_by(thetvdb_ref: ref) do |show|
-        result = thetvdb.series(ref)
-        show.title    = result.name
-        show.image    = result.poster_url
-        show.overview = result.overview
-        show.save!
-      end
+      Shows::Import.new(ref: ref).call
     end
 
     redirect_to shows_path
