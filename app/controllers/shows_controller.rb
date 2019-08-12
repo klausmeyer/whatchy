@@ -4,7 +4,7 @@ class ShowsController < ApplicationController
   end
 
   def show
-    @show = Show.find params[:id]
+    @show = Show.find_by! slug: params[:slug]
   end
 
   def new

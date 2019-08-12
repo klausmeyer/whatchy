@@ -14,7 +14,7 @@ class SubscriptionsController < ApplicationController
   private
 
   def show
-    Show.find params[:show_id]
+    Show.find_by! slug: params[:show_slug]
   end
 
   def redirect_success

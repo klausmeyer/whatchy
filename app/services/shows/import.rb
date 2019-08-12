@@ -8,6 +8,7 @@ module Shows
       Show.find_or_initialize_by(thetvdb_ref: ref).tap do |show|
         result = thetvdb.series(ref)
         show.title    = result.name
+        show.slug     = result.slug
         show.image    = result.poster_url
         show.overview = result.overview
         show.save!
