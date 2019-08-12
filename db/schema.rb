@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_123920) do
+ActiveRecord::Schema.define(version: 2019_08_12_152929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "episodes", force: :cascade do |t|
+    t.bigint "season_id", null: false
+    t.integer "number"
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["season_id"], name: "index_episodes_on_season_id"
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.bigint "show_id", null: false
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["show_id"], name: "index_seasons_on_show_id"
+  end
 
   create_table "shows", force: :cascade do |t|
     t.string "thetvdb_ref"
@@ -54,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_08_12_123920) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "episodes", "seasons"
+  add_foreign_key "seasons", "shows"
   add_foreign_key "subscriptions", "shows"
   add_foreign_key "subscriptions", "users"
 end

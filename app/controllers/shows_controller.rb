@@ -3,6 +3,10 @@ class ShowsController < ApplicationController
     @shows = Show.sorted_by_title
   end
 
+  def show
+    @show = Show.find params[:id]
+  end
+
   def new
 
   end

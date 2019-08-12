@@ -5,8 +5,9 @@
     <% end %>
   </div>
   <div class="col col-lg-10">
-    <h3><%= show.title %></h3>
+    <h3><%= link_to show.title, show %></h3>
     <p><%= show.overview %></p>
+    <p><%= show.seasons.count %> Seasons</p>
   </div>
 </div>
 
