@@ -3,7 +3,7 @@ class Episode < ApplicationRecord
 
   scope :sorted_by_number, -> () { order(number: :asc) }
 
-  def full_number
+  def display_number
     'S%02dE%02d' % [season.number, number]
   end
 end
