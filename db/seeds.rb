@@ -11,4 +11,6 @@ User.find_or_initialize_by(email: 'admin@example.com').tap do |u|
   u.password              = '12345678'
   u.password_confirmation = u.password
   u.save!
+
+  u.confirm unless u.confirmed?
 end
