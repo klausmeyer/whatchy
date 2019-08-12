@@ -51,6 +51,7 @@ gem 'bootstrap', '~> 4.3'
 gem 'devise', '~> 4.6'
 gem 'devise-bootstrap-views', '~> 1.1'
 gem 'tvdb2', '~> 0.1.3'
+gem 'jquery-rails', '~> 4.3'
 
 group :development do
   gem 'dotenv-rails', '~> 2.7'
