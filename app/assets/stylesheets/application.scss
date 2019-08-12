@@ -1,4 +1,8 @@
+@import "_variables";
+
 @import "bootstrap";
+
+@import "_bootswatch";
 
 .alert-notice { @extend .alert-info; }
 .alert-error  { @extend .alert-danger; }

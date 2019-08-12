@@ -1,11 +1,14 @@
 <h2>Subscriptions</h2>
 
+<p>
+  Here are the shows you have subscribed to.<br>
+  You can manage <%= link_to 'your subscriptions here', shows_path %> here</p>
+</p>
+
+<hr />
+
 <% if @shows.any? %>
   <%= render @shows %>
 <% else %>
-  <p>No Shows found</p>
+  <p>You don't have any active subscriptions.</p>
 <% end %>
-
-<p><%= link_to 'Manage Subscriptions', shows_path %></p>
-
-<hr />
