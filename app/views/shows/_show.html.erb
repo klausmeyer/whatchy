@@ -1,24 +1,24 @@
 <div class="row">
-  <div class="col">
+  <div class="col col-lg-3">
     <% if show.image.present? %>
       <%= link_to show do %>
-        <% image_tag show.image, width: 150 %>
+        <% image_tag "https://placekitten.com/150/250", width: 150, alt: "Poster", loading: :lazy %>
       <% end %>
     <% end %>
   </div>
-  <div class="col col-lg-10">
+  <div class="col col-lg-9">
     <h3><%= link_to show.title, show %></h3>
     <p><%= show.overview %></p>
     <p>
-      <%= pluralize show.seasons.without_specials.count, 'season' %>
+      <%= pluralize show.seasons.without_specials.count, "season" %>
       &middot;
-      <%= pluralize show.subscriptions.count, 'subscription' %>
+      <%= pluralize show.subscriptions.count, "subscription" %>
     </p>
 
     <% if current_user.subscriptions.where(show: show).none? %>
-      <%= link_to 'Subscribe', show_subscription_path(show), method: :post, class: "btn btn-primary" %>
+      <%= link_to "Subscribe", show_subscription_path(show), method: :post, class: "btn btn-primary" %>
     <% else %>
-      <%= link_to 'Unubscribe', show_subscription_path(show), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+      <%= link_to "Unubscribe", show_subscription_path(show), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
     <% end %>
   </div>
 </div>
