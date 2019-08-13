@@ -9,7 +9,11 @@
   <div class="col col-lg-10">
     <h3><%= link_to show.title, show %></h3>
     <p><%= show.overview %></p>
-    <p><%= show.seasons.without_specials.count %> Seasons</p>
+    <p>
+      <%= pluralize show.seasons.without_specials.count, 'season' %>
+      &middot;
+      <%= pluralize show.subscriptions.count, 'subscription' %>
+    </p>
 
     <% if current_user.subscriptions.where(show: show).none? %>
       <%= link_to 'Subscribe', show_subscription_path(show), method: :post, class: "btn btn-primary" %>
