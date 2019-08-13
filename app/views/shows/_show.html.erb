@@ -18,7 +18,7 @@
     <% if current_user.subscriptions.where(show: show).none? %>
       <%= link_to 'Subscribe', show_subscription_path(show), method: :post, class: "btn btn-primary" %>
     <% else %>
-      <%= link_to 'Unubscribe', show_subscription_path(show), method: :delete, class: "btn btn-danger" %>
+      <%= link_to 'Unubscribe', show_subscription_path(show), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
     <% end %>
   </div>
 </div>
