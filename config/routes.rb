@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resource :subscription, only: [:create, :destroy]
   end
 
+  resources :seasons, only: [] do
+    resource :season_state, on: :member, only: [:update], path: :state, as: :state
+  end
+
   resources :episodes, only: [] do
     resource :episode_state, on: :member, only: [:update], path: :state, as: :state
   end
