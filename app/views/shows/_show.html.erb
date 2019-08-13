@@ -2,7 +2,7 @@
   <div class="col col-lg-3">
     <% if show.image.present? %>
       <%= link_to show do %>
-        <% image_tag banner_url(show), width: 150, alt: "Poster", loading: :lazy %>
+        <% image_tag banner_url(show.image), width: 150, alt: "Poster", loading: :lazy %>
       <% end %>
     <% end %>
   </div>

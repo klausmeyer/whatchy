@@ -25,7 +25,7 @@
           <td><strong><%= result.name %></strong> (<%= result.network %>)</td>
           <td>
             <% if result.banner.present? %>
-              <%= image_tag result.banner_url %>
+              <%= image_tag banner_url("/banners/#{result.banner}") %>
               <br />
             <% end %>
 
