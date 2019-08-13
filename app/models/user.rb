@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :subscriptions, dependent: :destroy
   has_many :shows, through: :subscriptions
+  has_many :episode_states
 end

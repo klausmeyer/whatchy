@@ -10,9 +10,13 @@
     <h3><%= link_to show.title, show %></h3>
     <p><%= show.overview %></p>
     <p>
-      <%= pluralize show.seasons.without_specials.count, "season" %>
-      &middot;
-      <%= pluralize show.subscriptions.count, "subscription" %>
+      <%= link_to show do %>
+        Seasons (incl. Specials): <%= show.seasons.count %>
+        &middot;
+        Subscriptions: <%= show.subscriptions.count %>
+        &middot;
+        Episodes: <%= show.episodes.count %> - Seen: <%= current_user.episode_states.where(episode: show.episodes).where.not(seen_at: nil).count %>
+      <% end %>
     </p>
 
     <% if current_user.subscriptions.where(show: show).none? %>

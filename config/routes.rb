@@ -6,4 +6,8 @@ Rails.application.routes.draw do
     get :search, on: :collection
     resource :subscription, only: [:create, :destroy]
   end
+
+  resources :episodes, only: [] do
+    resource :episode_state, on: :member, only: [:update], path: :state, as: :state
+  end
 end
