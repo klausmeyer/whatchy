@@ -9,7 +9,7 @@ module Shows
         result = thetvdb.series(ref)
         show.title    = result.name
         show.slug     = result.slug
-        show.image    = result.poster_url
+        show.image    = "/banners/#{result.posters.first.fileName}"
         show.overview = result.overview
         show.save!
 
