@@ -16,9 +16,3 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-
-$(document).ready(function() {
-  $('[data-behaviour=episode-seen-toggle]').on('change', function(e) {
-    this.form.submit();
-  });
-});

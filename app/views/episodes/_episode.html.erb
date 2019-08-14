@@ -6,10 +6,8 @@
 <div class="row">
   <div class="col">
     <div class="custom-control custom-switch">
-      <%= form_with(url: episode_state_path(episode), method: :put) do |f| %>
-        <%= content_tag :input, nil, type: "checkbox", class: "custom-control-input", data: { behaviour: "episode-seen-toggle" }, id: dom_id(episode, :seen), name: "seen", value: "1", checked: seen %>
-        <%= content_tag :label, "Seen", class: "custom-control-label", for: dom_id(episode, :seen) %>
-      <% end %>
+      <%= check_box_tag :seen, nil, seen, class: "custom-control-input", id: dom_id(episode, :seen), data: { remote: true, method: :put, url: episode_state_path(episode) } %>
+      <%= content_tag :label, "Seen", class: "custom-control-label", for: dom_id(episode, :seen) %>
     </div>
   </div>
   <div class="col"><pre><%= episode.display_number %></pre></div>

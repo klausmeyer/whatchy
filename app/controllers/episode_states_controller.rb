@@ -8,7 +8,7 @@ class EpisodeStatesController < ApplicationController
   private
 
   def update_state
-    state.update!(seen_at: params[:seen] == '1' ? Time.current : nil)
+    state.update!(seen_at: params[:seen].present? ? Time.current : nil)
   end
 
   def state
