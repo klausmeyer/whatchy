@@ -56,3 +56,8 @@ gem 'jquery-rails', '~> 4.3'
 group :development do
   gem 'dotenv-rails', '~> 2.7'
 end
+
+group :development, :test do
+  gem 'factory_bot_rails', '~> 5.0'
+  gem 'rspec-rails', '~> 3.8'
+end

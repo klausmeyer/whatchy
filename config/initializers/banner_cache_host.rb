@@ -1,1 +1,1 @@
-Rails.application.config.x.banner_cache_host = ENV.fetch('BANNER_CACHE_HOST')
+Rails.application.config.x.banner_cache_host = ENV['BANNER_CACHE_HOST'] || 'https://cache.example.com'
