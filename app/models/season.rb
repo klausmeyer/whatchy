@@ -7,6 +7,11 @@ class Season < ApplicationRecord
 
   # TODO: Move this to a helper / query-object / whatever
   def unseen_episodes_for?(user:)
-    episodes.joins(:episode_states).where("episode_states.user_id = ? AND episode_states.seen_at IS NULL", user.id).any?
+    left_outer_join = Episode.arel_table.join(EpisodeState.arel_table, Arel::Nodes::OuterJoin).on(
+      EpisodeState.arel_table[:episode_id].eq(Episode.arel_table[:id]).and(
+      EpisodeState.arel_table[:user_id].eq(user.id))
+    ).join_sources
+
+    episodes.joins(left_outer_join).where(episode_states: {seen_at: nil}).any?
   end
 end
