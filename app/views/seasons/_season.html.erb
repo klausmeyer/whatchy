@@ -2,11 +2,7 @@
   <div class="card-header">
     <h2 class="mb-0">
       <button class="btn btn-link <% if season_iteration.index != 0 %>collapsed<% end %>" type="button" data-toggle="collapse" data-target="#<%= dom_id(season) %>">
-        <% if season.number == 0 %>
-          Specials
-        <% else %>
-          Season <%= season.number %>
-        <% end %>
+        Season <%= season.number %>
       </button>
     </h2>
   </div>

@@ -11,11 +11,11 @@
     <p><%= show.overview %></p>
     <p>
       <%= link_to show do %>
-        Seasons (incl. Specials): <%= show.seasons.count %>
+        Seasons: <%= show.seasons.size %>
         &middot;
-        Subscriptions: <%= show.subscriptions.count %>
+        Subscriptions: <%= show.subscriptions.size %>
         &middot;
-        Episodes: <%= show.episodes.count %> - Seen: <%= current_user.episode_states.where(episode: show.episodes).where.not(seen_at: nil).count %>
+        Episodes: <%= show.episodes.size %> - Seen: <%= current_user.episode_states.where(episode: show.episodes).where.not(seen_at: nil).size %>
       <% end %>
     </p>
 

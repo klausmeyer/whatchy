@@ -6,6 +6,8 @@ module Episodes
 
     def call
       thetvdb.series(show.thetvdb_ref).episodes.each do |episode|
+        next if episode.seasonNumber.to_i < 1
+
         season = show.seasons.find_or_create_by(number: episode.seasonNumber)
         season.episodes.find_or_initialize_by(number: episode.number).tap do |record|
           record.title = episode.name
