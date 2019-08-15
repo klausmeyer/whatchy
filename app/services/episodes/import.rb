@@ -5,6 +5,11 @@ module Episodes
     end
 
     def call
+      if show.block_sync
+        Rails.logger.info 'Synchronisation skipped as it is disabled for this show.'
+        return
+      end
+
       thetvdb.series(show.thetvdb_ref).episodes.each do |episode|
         next if episode.seasonNumber.to_i < 1
 
