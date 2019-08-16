@@ -50,7 +50,7 @@ end
 gem 'bootstrap', '~> 4.3'
 gem 'devise', '~> 4.6'
 gem 'devise-bootstrap-views', '~> 1.1'
-gem 'tvdb2', '~> 0.1.3'
+gem 'tvdb2', '~> 0.1.3', github: 'klausmeyer/tvdb2', branch: 'add-slug-to-series'
 gem 'jquery-rails', '~> 4.3'
 
 group :development do
