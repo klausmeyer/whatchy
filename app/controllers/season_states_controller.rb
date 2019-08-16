@@ -8,7 +8,6 @@ class SeasonStatesController < ApplicationController
   private
 
   def update_states
-    # TODO: Service class?
     season.episodes.each do |episode|
       episode.episode_states.find_or_initialize_by(user: current_user).tap do |state|
         state.seen_at = params[:seen].to_s == 'true' ? Time.current : nil
