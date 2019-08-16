@@ -1,4 +1,7 @@
-<div class="row">
+<%
+  unseen_episodes = Episodes::UnseenQuery.new(show).for_user(current_user)
+%>
+<div class="row <% unless unseen_episodes.any? %>show-completed<% end %>">
   <div class="col col-lg-3">
     <% if show.image.present? %>
       <%= link_to show do %>
@@ -25,7 +28,7 @@
       <%= link_to "Unubscribe", show_subscription_path(show), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
     <% end %>
 
-    <% if Episodes::UnseenQuery.new(show).for_user(current_user).any? %>
+    <% if unseen_episodes.any? %>
       <%= link_to "Mark as seen", show_state_path(show, seen: true), method: :put, class: "btn btn-link" %>
     <% else %>
       <%= link_to "Mark as unseen", show_state_path(show, seen: false), method: :put, class: "btn btn-link" %>
