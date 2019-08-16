@@ -2,7 +2,7 @@ class SeasonStatesController < ApplicationController
   def update
     update_states
 
-    redirect_to season.show
+    redirect_to show_path(season.show, anchor: anchor)
   end
 
   private
@@ -18,5 +18,9 @@ class SeasonStatesController < ApplicationController
 
   def season
     Season.find params[:season_id]
+  end
+
+  def anchor
+    ActionView::RecordIdentifier.dom_id(season)
   end
 end
