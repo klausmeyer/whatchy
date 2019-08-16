@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   resources :shows, only: [:index, :show, :new, :create], param: :slug do
     get :search, on: :collection
+
     resource :subscription, only: [:create, :destroy]
+
+    resource :show_state, on: :member, only: [:update], path: :state, as: :state
   end
 
   resources :seasons, only: [] do

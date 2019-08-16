@@ -12,7 +12,7 @@
       <%= render season.episodes.sorted_by_number %>
 
       <p>
-        <% if Seasons::UnseenEpisodesQuery.new(season).for_user(current_user).any? %>
+        <% if Episodes::UnseenQuery.new(season).for_user(current_user).any? %>
           <%= link_to 'Mark all as seen', season_state_path(season, seen: true), method: :put %>
         <% else %>
           <%= link_to 'Mark all as unseen', season_state_path(season, seen: false), method: :put %>

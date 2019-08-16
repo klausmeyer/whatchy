@@ -1,7 +1,7 @@
-module Seasons
-  class UnseenEpisodesQuery
-    def initialize(season)
-      self.season = season
+module Episodes
+  class UnseenQuery
+    def initialize(parent)
+      self.parent = parent
     end
 
     def for_user(user)
@@ -10,11 +10,11 @@ module Seasons
         EpisodeState.arel_table[:user_id].eq(user.id))
       ).join_sources
 
-      season.episodes.joins(left_outer_join).where(episode_states: {seen_at: nil})
+      parent.episodes.joins(left_outer_join).where(episode_states: {seen_at: nil})
     end
 
     private
 
-    attr_accessor :season
+    attr_accessor :parent
   end
 end

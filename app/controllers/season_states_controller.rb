@@ -1,19 +1,18 @@
 class SeasonStatesController < ApplicationController
   def update
-    update_states
+    service.call
 
     redirect_to show_path(season.show, anchor: anchor)
   end
 
   private
 
-  def update_states
-    season.episodes.each do |episode|
-      episode.episode_states.find_or_initialize_by(user: current_user).tap do |state|
-        state.seen_at = params[:seen].to_s == 'true' ? Time.current : nil
-        state.save!
-      end
-    end
+  def service
+    EpisodeStates::BulkUpdate.new(parent: season, user: current_user, params: update_params)
+  end
+
+  def update_params
+    params.permit(:seen)
   end
 
   def season

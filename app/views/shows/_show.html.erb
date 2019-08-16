@@ -24,6 +24,12 @@
     <% else %>
       <%= link_to "Unubscribe", show_subscription_path(show), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
     <% end %>
+
+    <% if Episodes::UnseenQuery.new(show).for_user(current_user).any? %>
+      <%= link_to "Mark as seen", show_state_path(show, seen: true), method: :put, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Mark as unseen", show_state_path(show, seen: false), method: :put, class: "btn btn-link" %>
+    <% end %>
   </div>
 </div>
 
