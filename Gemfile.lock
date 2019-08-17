@@ -1,7 +1,6 @@
 GIT
-  remote: https://github.com/klausmeyer/tvdb2.git
-  revision: 43557467519acc1a953345a35ac127715171a77b
-  branch: add-slug-to-series
+  remote: https://github.com/pioz/tvdb2.git
+  revision: 97355da1f261c471ed3984478bb93b17724d7686
   specs:
     tvdb2 (0.1.3)
       httparty (~> 0.15)
