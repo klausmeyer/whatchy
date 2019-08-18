@@ -6,10 +6,12 @@ module Shows
 
     def call
       Show.find_or_initialize_by(thetvdb_ref: ref).tap do |show|
-        result = thetvdb.series(ref)
+        result  = thetvdb.series(ref)
+        posters = result.posters
+
         show.title    = result.name
         show.slug     = result.slug
-        show.image    = "/banners/#{result.posters.first.fileName}"
+        show.image    = "/banners/#{posters.first.fileName}" if posters.any?
         show.overview = result.overview
         show.save!
 
