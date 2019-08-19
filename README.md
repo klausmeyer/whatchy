@@ -17,3 +17,7 @@ By default the application is designed to run at [Heroku][heroku].
 
 [thetvdb]: https://www.thetvdb.com
 [heroku]: https://www.heroku.com
+
+## Licence
+
+The application is available as open source under the terms of the MIT License.
