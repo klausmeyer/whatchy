@@ -6,14 +6,14 @@
     </p>
   </div>
   <div>
-    <%= link_to 'Add Show', new_show_path, class: "btn btn-outline-primary" %>
+    <%= link_to 'Add Missing Show', new_show_path, class: "btn btn-outline-primary" %>
   </div>
 </div>
 
 <hr />
 
 <% if @shows.any? %>
-  <%= render @shows %>
+  <%= render @shows, manage_subscription: true %>
 <% else %>
   <p>No Shows available.</p>
 <% end %>

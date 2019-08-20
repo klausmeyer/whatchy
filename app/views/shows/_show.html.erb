@@ -11,7 +11,13 @@
   </div>
   <div class="col col-lg-9">
     <h3><%= link_to show.title, show %></h3>
-    <p class="mr-lg-5 pr-lg-5"><%= truncate show.overview, length: 300 %></p>
+    <p class="mr-lg-5 pr-lg-5">
+      <% if defined?(show_iteration) %>
+        <%= truncate show.overview, length: 300 %>
+      <% else %>
+        <%= show.overview %>
+      <% end %>
+    </p>
     <p>
       <%= link_to show do %>
         Seasons: <%= show.seasons.size %>
@@ -22,16 +28,20 @@
       <% end %>
     </p>
 
-    <% if current_user.subscriptions.where(show: show).none? %>
-      <%= link_to "Subscribe", show_subscription_path(show), method: :post, class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Unubscribe", show_subscription_path(show), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+    <% if defined?(manage_subscription) && manage_subscription %>
+      <% if current_user.subscriptions.where(show: show).none? %>
+        <%= link_to "Subscribe", show_subscription_path(show), method: :post, class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to "Unubscribe", show_subscription_path(show), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+      <% end %>
     <% end %>
 
-    <% if unseen_episodes.any? %>
-      <%= link_to "Mark as seen", show_state_path(show, seen: true), method: :put, class: "btn btn-link" %>
-    <% else %>
-      <%= link_to "Mark as unseen", show_state_path(show, seen: false), method: :put, class: "btn btn-link" %>
+    <% if defined?(manage_seen_state) && manage_seen_state %>
+      <% if unseen_episodes.any? %>
+        <%= link_to "Mark as seen", show_state_path(show, seen: true), method: :put, class: "btn btn-link" %>
+      <% else %>
+        <%= link_to "Mark as unseen", show_state_path(show, seen: false), method: :put, class: "btn btn-link" %>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,4 +1,8 @@
 class SubscriptionsController < ApplicationController
+  def index
+    @shows = current_user.shows.sorted_by_title
+  end
+
   def create
     current_user.subscriptions.create!(show: show)
 

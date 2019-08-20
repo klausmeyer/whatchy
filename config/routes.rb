@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'home#index'
+
+  root to: 'subscriptions#index'
 
   resources :shows, only: [:index, :show, :new, :create], param: :slug do
     get :search, on: :collection
