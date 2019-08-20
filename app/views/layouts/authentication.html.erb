@@ -1,0 +1,9 @@
+<% content_for :content do %>
+  <div class="row justify-content-center my-5 py-5">
+    <div class="col-md-8 col-lg-4">
+      <%= yield %>
+    </div>
+  </div>
+<% end %>
+
+<%= render template: "layouts/application" %>
