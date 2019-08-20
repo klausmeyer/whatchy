@@ -1,8 +1,8 @@
 <%
   unseen_episodes = Episodes::UnseenQuery.new(show).for_user(current_user)
 %>
-<div class="row <% unless unseen_episodes.any? %>show-completed<% end %>">
-  <div class="col col-lg-3">
+<div class="row align-items-center <% unless unseen_episodes.any? %>show-completed<% end %>">
+  <div class="col col-lg-3 text-center">
     <% if show.image.present? %>
       <%= link_to show do %>
         <% image_tag banner_url(show.image), width: 150, alt: "Poster", loading: :lazy %>
@@ -11,7 +11,7 @@
   </div>
   <div class="col col-lg-9">
     <h3><%= link_to show.title, show %></h3>
-    <p><%= show.overview %></p>
+    <p class="mr-lg-5 pr-lg-5"><%= show.overview %></p>
     <p>
       <%= link_to show do %>
         Seasons: <%= show.seasons.size %>

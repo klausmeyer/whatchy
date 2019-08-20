@@ -1,9 +1,14 @@
-<h2>All Shows</h2>
-
-<p>
-  Here you can find all shows already subscribed by other users.<br>
-  Feel free to <%= link_to 'add missing shows here', new_show_path %>.</p>
-</p>
+<div class="d-flex align-items-center justify-content-between">
+  <div>
+    <h2>All Shows</h2>
+    <p>
+      Here you can find all shows already subscribed by other users.<br>
+    </p>
+  </div>
+  <div>
+    <%= link_to 'Add Show', new_show_path, class: "btn btn-outline-primary" %>
+  </div>
+</div>
 
 <hr />
 
