@@ -1,10 +1,8 @@
-@import "_variables";
-
+// bootstrap and theme
+@import "theme/lux/variables";
 @import "bootstrap";
+@import "theme/lux/bootswatch";
 
-@import "_bootswatch";
-
-.alert-notice { @extend .alert-info; }
-.alert-error  { @extend .alert-danger; }
-
+// components
+@import "alert";
 @import "shows";
