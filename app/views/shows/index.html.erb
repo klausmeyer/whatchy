@@ -14,6 +14,8 @@
 
 <% if @shows.any? %>
   <%= render @shows, manage_subscription: true %>
+
+  <%= paginate @shows %>
 <% else %>
   <p>No Shows available.</p>
 <% end %>

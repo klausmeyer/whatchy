@@ -1,6 +1,6 @@
 class ShowsController < ApplicationController
   def index
-    @shows = Show.sorted_by_title
+    @shows = Show.sorted_by_title.page(page)
   end
 
   def show
@@ -24,6 +24,10 @@ class ShowsController < ApplicationController
   end
 
   private
+
+  def page
+    params[:page] || 1
+  end
 
   def thetvdb
     @thetvdb ||= TVDB.new(apikey: Rails.application.config.x.thetvdb_apikey)

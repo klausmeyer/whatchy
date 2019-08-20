@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   def index
-    @shows = current_user.shows.sorted_by_title
+    @shows = current_user.shows.sorted_by_title.page(page)
   end
 
   def create
@@ -16,6 +16,10 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
+  def page
+    params[:page] || 1
+  end
 
   def show
     Show.find_by! slug: params[:show_slug]
