@@ -12,6 +12,7 @@ module Episodes
 
       thetvdb.series(show.thetvdb_ref).episodes.each do |episode|
         next if episode.seasonNumber.to_i < 1
+        next if episode.firstAired.present? && Date.parse(episode.firstAired) > Date.today
 
         season = show.seasons.find_or_create_by(number: episode.seasonNumber)
         season.episodes.find_or_initialize_by(number: episode.number).tap do |record|
