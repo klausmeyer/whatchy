@@ -11,7 +11,7 @@
   </div>
   <div class="col col-lg-9">
     <h3><%= link_to show.title, show %></h3>
-    <p class="mr-lg-5 pr-lg-5"><%= show.overview %></p>
+    <p class="mr-lg-5 pr-lg-5"><%= truncate show.overview, length: 300 %></p>
     <p>
       <%= link_to show do %>
         Seasons: <%= show.seasons.size %>
