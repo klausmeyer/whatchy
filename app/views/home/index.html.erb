@@ -1,14 +1,23 @@
-<h2>Subscriptions</h2>
-
-<p>
-  Here are the shows you have subscribed to.<br>
-  You can manage <%= link_to 'your subscriptions here', shows_path %>.</p>
-</p>
+<div class="d-flex align-items-center justify-content-between">
+  <div>
+    <h2>Subscriptions</h2>
+    <p>
+      Here are the shows you have subscribed to.
+    </p>
+  </div>
+  <div>
+    <%= link_to 'Manage subscriptions', shows_path, class: "btn btn-outline-primary" %>.</p>
+  </div>
+</div>
 
 <hr />
 
 <% if @shows.any? %>
   <%= render @shows %>
 <% else %>
-  <p>You don't have any active subscriptions.</p>
+  <div class="text-center bg-light my-5 py-5">
+    <h2>Howdy</h2>
+    <p>You don't have any active subscriptions.</p>
+    <%= link_to 'Add Subscription', shows_path, class: "btn btn-sm btn-outline-primary" %>
+  </div>
 <% end %>
