@@ -1,0 +1,25 @@
+<div class="d-flex align-items-center justify-content-between">
+  <div>
+    <h2>Welcome</h2>
+    <p>
+      You have <%= pluralize(@shows.size, 'show') %> with unseen episodes.
+    </p>
+  </div>
+  <div>
+    <%= link_to 'My subscriptions', subscriptions_path, class: "btn btn-outline-primary" %>.</p>
+  </div>
+</div>
+
+<hr />
+
+<% if @shows.any? %>
+  <%= render @shows %>
+
+  <%= paginate @shows %>
+<% else %>
+  <div class="text-center bg-light my-5 py-5">
+    <h2>Howdy</h2>
+    <p>You don't have any shows to watch.</p>
+    <%= link_to 'Add Show', shows_path, class: "btn btn-sm btn-outline-primary" %>
+  </div>
+<% end %>

@@ -1,5 +1,11 @@
 class HomeController < ApplicationController
   def index
-    @shows = current_user.shows.sorted_by_title
+    @shows = Shows::UnseenQuery.new.for_user(current_user).page(page)
+  end
+
+  private
+
+  def page
+    params[:page] || 1
   end
 end
