@@ -1,4 +1,4 @@
-class SeasonStatesController < ApplicationController
+class Seasons::StatesController < ApplicationController
   def update
     service.call
 

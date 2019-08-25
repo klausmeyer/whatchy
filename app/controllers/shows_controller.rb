@@ -7,10 +7,6 @@ class ShowsController < ApplicationController
     @show = Show.find_by! slug: params[:slug]
   end
 
-  def new
-
-  end
-
   def search
     @results = thetvdb.search(name: params[:keywords])
   end

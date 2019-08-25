@@ -1,4 +1,4 @@
-class ShowStatesController < ApplicationController
+class Shows::StatesController < ApplicationController
   def update
     service.call
 

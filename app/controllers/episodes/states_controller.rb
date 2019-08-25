@@ -1,4 +1,4 @@
-class EpisodeStatesController < ApplicationController
+class Episodes::StatesController < ApplicationController
   def update
     update_state
 

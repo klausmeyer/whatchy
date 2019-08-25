@@ -8,16 +8,17 @@ Rails.application.routes.draw do
   resources :shows, only: [:index, :show, :new, :create], param: :slug do
     get :search, on: :collection
 
-    resource :subscription, only: [:create, :destroy]
-
-    resource :show_state, on: :member, only: [:update], path: :state, as: :state
+    scope module: :shows do
+      resource :subscription, only: [:create, :destroy]
+      resource :state, only: [:update]
+    end
   end
 
   resources :seasons, only: [] do
-    resource :season_state, on: :member, only: [:update], path: :state, as: :state
+    resource :state, only: [:update], module: :seasons
   end
 
   resources :episodes, only: [] do
-    resource :episode_state, on: :member, only: [:update], path: :state, as: :state
+    resource :state, only: [:update], module: :episodes
   end
 end
