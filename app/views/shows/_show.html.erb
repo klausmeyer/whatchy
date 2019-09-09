@@ -1,5 +1,7 @@
 <%
   unseen_episodes = Episodes::UnseenQuery.new(show).for_user(current_user)
+  seen_episodes   = current_user.episode_states.where(episode: show.episodes).where.not(seen_at: nil)
+  seen_percent    = (seen_episodes.size.to_f / show.episodes.size.to_f * 100.0).floor
 %>
 <div class="row align-items-center <% unless unseen_episodes.any? %>show-completed<% end %>">
   <div class="col col-lg-3 text-center">
@@ -18,13 +20,18 @@
         <%= show.overview %>
       <% end %>
     </p>
+
+    <div class="progress mb-3" style="height: 20px">
+      <div class="progress-bar progress-bar-striped bg-warning" style="width: <%= seen_percent %>%;"></div>
+    </div>
+
     <p>
       <%= link_to show do %>
         Seasons: <%= show.seasons.size %>
         &middot;
         Subscriptions: <%= show.subscriptions.size %>
         &middot;
-        Episodes: <%= show.episodes.size %> - Seen: <%= current_user.episode_states.where(episode: show.episodes).where.not(seen_at: nil).size %>
+        Episodes: <%= show.episodes.size %> - Seen: <%= seen_episodes.size %>
       <% end %>
     </p>
 
