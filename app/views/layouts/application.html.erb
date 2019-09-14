@@ -20,7 +20,7 @@
 
           <% if user_signed_in? %>
             <%= content_tag :span, class: 'text-light' do %>
-              <%= current_user.email %>
+              <%= link_to current_user.email, profile_path, class: "text-light" %>
             <% end %>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger ml-3' %>
           <% end %>

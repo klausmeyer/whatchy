@@ -1,0 +1,35 @@
+<h2>Profile</h2>
+
+<p>Here you can change details of your registration:</p>
+
+<p>
+  <ul>
+    <li><%= link_to 'Change E-Mail or Password', edit_user_registration_path %></li>
+  </ul>
+</p>
+
+<hr />
+
+<h3>History</h3>
+
+<p>The following list shows your activities over time:</p>
+
+<% @history_entries.each do |date, entries| %>
+  <h4><%= date %></h4>
+  <p>
+    <ul>
+      <% entries.each do |entry| %>
+        <li>
+          <% case entry %>
+          <% when Subscription %>
+            Subscribed to <%= link_to entry.show.title, entry.show %>
+          <% when EpisodeState %>
+            Marked <%= link_to entry.episode.show.title, entry.episode.show %> - <%= entry.episode.display_number %> - &raquo;<%= entry.episode.title %>&laquo; as <% if entry.seen_at %>seen<% else %>unseen<% end %>.
+          <% else %>
+            Something
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </p>
+<% end %>

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  resource :profile, only: [:show]
+
   resources :subscriptions, only: [:index]
 
   resources :shows, only: [:index, :show, :new, :create], param: :slug do

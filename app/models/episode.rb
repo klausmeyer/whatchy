@@ -1,5 +1,6 @@
 class Episode < ApplicationRecord
   belongs_to :season
+  has_one :show, through: :season
   has_many :episode_states, dependent: :destroy
 
   scope :sorted_by_number, -> () { order(number: :asc) }
