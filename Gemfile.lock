@@ -64,6 +64,10 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.1, >= 2.1.8)
+    airbrake (9.4.3)
+      airbrake-ruby (~> 4.6)
+    airbrake-ruby (4.6.0)
+      rbtree3 (~> 0.5)
     autoprefixer-rails (9.6.1)
       execjs
     bcrypt (3.1.13)
@@ -186,6 +190,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rbtree3 (0.5.0)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -253,6 +258,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake (~> 9.4)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.3)
   byebug
