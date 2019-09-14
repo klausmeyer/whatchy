@@ -76,3 +76,7 @@ end
 # integration with the Logger class from stdlib.
 # https://github.com/airbrake/airbrake#logger
 # Rails.logger = Airbrake::AirbrakeLogger.new(Rails.logger)
+
+Airbrake.add_filter do |notice|
+  notice.ignore! if notice[:exception].is_a?(SignalException) && notice[:exception].signo == Signal.list['TERM']
+end
