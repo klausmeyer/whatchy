@@ -19,9 +19,8 @@
           <div class="mr-auto"></div>
 
           <% if user_signed_in? %>
-            <%= content_tag :span, class: 'text-light' do %>
+            <%= image_tag "https://www.gravatar.com/avatar/#{current_user.gravatar_hash}?d=mp", class: "rounded-circle mr-2", size: "36x36" %>
               <%= link_to current_user.email, profile_path, class: "text-light" %>
-            <% end %>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger ml-3' %>
           <% end %>
         </div>

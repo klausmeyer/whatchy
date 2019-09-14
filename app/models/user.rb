@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :shows, through: :subscriptions
   has_many :episode_states, dependent: :destroy
+
+  def gravatar_hash
+    Digest::MD5.hexdigest(email.downcase)
+  end
 end
