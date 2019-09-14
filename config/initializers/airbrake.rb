@@ -78,5 +78,5 @@ end
 # Rails.logger = Airbrake::AirbrakeLogger.new(Rails.logger)
 
 Airbrake.add_filter do |notice|
-  notice.ignore! if notice[:exception].is_a?(SignalException) && notice[:exception].signo == Signal.list['TERM']
+  notice.ignore! if notice.stash[:exception].is_a?(SignalException) && notice.stash[:exception].signo == Signal.list['TERM']
 end
