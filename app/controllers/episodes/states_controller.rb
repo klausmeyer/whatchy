@@ -2,7 +2,10 @@ class Episodes::StatesController < ApplicationController
   def update
     update_state
 
-    head :no_content
+    respond_to do |f|
+      f.html { head :no_content }
+      f.js   { render js: 'Turbolinks.clearCache(); Turbolinks.visit(window.location, { action: "replace" });' }
+    end
   end
 
   private
