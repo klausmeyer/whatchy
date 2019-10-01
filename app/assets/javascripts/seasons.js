@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on("turbolinks:load", function() {
   // Open collapse section based on anker in URL
   if (window.location.hash) {
     $(window.location.hash).collapse("show");
