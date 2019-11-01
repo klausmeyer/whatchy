@@ -1,4 +1,5 @@
 <%
+  watched_state   = defined?(watched_state) && watched_state
   unseen_episodes = Episodes::UnseenQuery.new(show).for_user(current_user)
   seen_episodes   = current_user.episode_states.where(episode: show.episodes).where.not(seen_at: nil)
   seen_percent    = (seen_episodes.size.to_f / show.episodes.size.to_f * 100.0).floor
@@ -21,9 +22,11 @@
       <% end %>
     </p>
 
-    <div class="progress mb-3" style="height: 20px">
-      <div class="progress-bar progress-bar-striped bg-warning" style="width: <%= seen_percent %>%;"></div>
-    </div>
+    <% if watched_state %>
+      <div class="progress mb-3" style="height: 20px">
+        <div class="progress-bar progress-bar-striped bg-warning" style="width: <%= seen_percent %>%;"></div>
+      </div>
+    <% end %>
 
     <p>
       This show has <%= pluralize(show.seasons.size, 'season') %> and <%= pluralize(show.episodes.size, 'episode') %>.
