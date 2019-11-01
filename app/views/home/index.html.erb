@@ -5,16 +5,12 @@
       You have <%= pluralize(@shows.size, 'show') %> with unseen episodes.
     </p>
   </div>
-  <div>
-    <%= link_to 'My subscriptions', subscriptions_path, class: "btn btn-outline-primary" %></p>
-  </div>
 </div>
 
 <hr />
 
 <% if @shows.any? %>
   <%= render @shows %>
-
   <%= paginate @shows %>
 <% else %>
   <div class="text-center bg-light my-5 py-5">

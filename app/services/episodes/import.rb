@@ -16,7 +16,8 @@ module Episodes
 
         season = show.seasons.find_or_create_by(number: episode.seasonNumber)
         season.episodes.find_or_initialize_by(number: episode.number).tap do |record|
-          record.title = episode.name
+          record.title       = episode.name
+          record.first_aired = episode.firstAired
           record.save!
         end
       end

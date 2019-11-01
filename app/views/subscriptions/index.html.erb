@@ -5,18 +5,12 @@
       Here are the shows you have subscribed to.
     </p>
   </div>
-  <div>
-    <% if @shows.any? %>
-      <%= link_to 'Manage Subscriptions', shows_path, class: "btn btn-outline-primary" %></p>
-    <% end %>
-  </div>
 </div>
 
 <hr />
 
 <% if @shows.any? %>
-  <%= render @shows %>
-
+  <%= render @shows, manage_subscription: true %>
   <%= paginate @shows %>
 <% else %>
   <div class="text-center bg-light my-5 py-5">

@@ -16,7 +16,12 @@
         <%= link_to 'Whatchy',  root_path, class: "navbar-brand" %>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="mr-auto"></div>
+          <ul class="navbar-nav mr-auto">
+            <%= navigation_item "Home", root_path %>
+            <%= navigation_item "Explore", shows_path %>
+            <%= navigation_item "Subscriptions", subscriptions_path %>
+            <%= navigation_item "Activities", activities_path %>
+          </ul>
 
           <% if user_signed_in? %>
             <%= link_to profile_path, class: "text-light" do %>

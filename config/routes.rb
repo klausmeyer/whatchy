@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  resources :activities, only: [:index]
+
   resource :profile, only: [:show]
 
   resources :subscriptions, only: [:index]

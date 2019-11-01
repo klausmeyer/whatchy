@@ -12,11 +12,7 @@ class ShowsController < ApplicationController
   end
 
   def create
-    Array(params[:shows]).each do |ref|
-      Shows::Import.new(ref: ref).call
-    end
-
-    redirect_to shows_path
+    redirect_to Shows::Import.new(ref: params[:ref]).call
   end
 
   private

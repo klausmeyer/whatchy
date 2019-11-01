@@ -26,13 +26,7 @@
     </div>
 
     <p>
-      <%= link_to show do %>
-        Seasons: <%= show.seasons.size %>
-        &middot;
-        Subscriptions: <%= show.subscriptions.size %>
-        &middot;
-        Episodes: <%= show.episodes.size %> - Seen: <%= seen_episodes.size %>
-      <% end %>
+      This show has <%= pluralize(show.seasons.size, 'season') %> and <%= pluralize(show.episodes.size, 'episode') %>.
     </p>
 
     <% if defined?(manage_subscription) && manage_subscription %>

@@ -13,8 +13,7 @@
 <hr />
 
 <% if @shows.any? %>
-  <%= render @shows, manage_subscription: true %>
-
+  <%= render @shows %>
   <%= paginate @shows %>
 <% else %>
   <p>No Shows available.</p>
