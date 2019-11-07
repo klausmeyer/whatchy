@@ -6,14 +6,14 @@
   seen_percent    = (seen_episodes.size.to_f / show.episodes.size.to_f * 100.0).floor
 %>
 <%= content_tag :div, class: ["row", list_view ? "align-items-center" : nil] do %>
-  <div class="col col-lg-3 text-center">
+  <div class="col-12 col-lg-3 text-center">
     <% if show.image.present? %>
       <%= link_to show do %>
-        <% image_tag banner_url(show.image), width: list_view ? 150 : 250, alt: "Poster", loading: :lazy %>
+        <% image_tag banner_url(show.image), width: list_view ? 150 : 250, class: "img-fluid", alt: "Poster", loading: :lazy %>
       <% end %>
     <% end %>
   </div>
-  <div class="col col-lg-9">
+  <div class="col-12 col-lg-9 mt-4 mt-sm-0">
     <h3><%= link_to show.title, show %></h3>
     <p class="mr-lg-5 pr-lg-5">
       <% if list_view %>

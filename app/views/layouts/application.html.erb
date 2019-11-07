@@ -19,17 +19,23 @@
       <div class="container">
         <%= link_to 'Whatchy',  root_path, class: "navbar-brand" %>
 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <%= navigation_item "Home", root_path %>
-            <%= navigation_item "Explore", shows_path %>
-            <%= navigation_item "Subscriptions", subscriptions_path %>
-            <%= navigation_item "Activities", activities_path %>
+            <% if user_signed_in? %>
+              <%= navigation_item "Home", root_path %>
+              <%= navigation_item "Explore", shows_path %>
+              <%= navigation_item "Subscriptions", subscriptions_path %>
+              <%= navigation_item "Activities", activities_path %>
+            <% end %>
           </ul>
 
           <% if user_signed_in? %>
             <%= link_to profile_path, class: "text-light" do %>
-              <%= image_tag "https://www.gravatar.com/avatar/#{current_user.gravatar_hash}?d=mp", class: "rounded-circle mr-2", size: "36x36" %><%= current_user.email %>
+              <%= image_tag "https://www.gravatar.com/avatar/#{current_user.gravatar_hash}?d=mp", class: "rounded-circle mr-2", size: "36x36" %>
             <% end %>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger ml-3' %>
           <% end %>
