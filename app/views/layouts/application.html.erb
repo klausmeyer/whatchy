@@ -48,5 +48,19 @@
     <div class="container my-4">
       <%= content_for?(:content) ? yield(:content) : yield %>
     </div>
+
+    <div class="container my-4 small text-mute text-center">
+      <div class="d-flex justify-content-between">
+        <div>
+          Code available on <a href="https://github.com/klausmeyer/whatchy">GitHub</a> :)
+        </div>
+        <div>
+          Last update: <%= l Episode.order(updated_at: :desc).first.updated_at, format: :long %>
+        </div>
+        <div>
+          Using data and images from <a href="https://www.thetvdb.com/">TheTVDB.com</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
