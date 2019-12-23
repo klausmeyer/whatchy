@@ -50,17 +50,13 @@
     </div>
 
     <div class="container my-4 small text-mute text-center">
-      <div class="d-flex justify-content-between">
-        <div>
-          Code available on <a href="https://github.com/klausmeyer/whatchy">GitHub</a> :)
-        </div>
-        <div>
-          Last update: <%= l Episode.order(updated_at: :desc).first.updated_at, format: :long %>
-        </div>
-        <div>
-          Using data and images from <a href="https://www.thetvdb.com/">TheTVDB.com</a>
-        </div>
-      </div>
+      Whatchy is a side project by <a target="_blank" href="https://www.klaus-meyer.net">Klaus Meyer</a>.
+      <br>
+      TV information and images are provided by <a target="_blank" href="https://www.thetvdb.com/">TheTVDB.com</a>, but we are not endorsed or certified by <a target="_blank" href="https://www.thetvdb.com/">TheTVDB.com</a> or its affiliates.
+      <br>
+      Last update: <%= l Episode.order(updated_at: :desc).first.updated_at, format: :long %>
+      &middot;
+      Code available on <a href="https://github.com/klausmeyer/whatchy">GitHub</a> :)
     </div>
   </body>
 </html>
