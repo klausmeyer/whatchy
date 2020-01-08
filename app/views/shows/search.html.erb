@@ -4,12 +4,16 @@
   <% @results.each do |result| %>
     <% next if result.banner.blank? %>
     <tr>
-      <td>
-        <h3><%= result.name %></h3>
-        <p><%= result.network.presence || '-' %></p>
-        <p><%= image_tag banner_url("/banners/#{result.banner}"), loading: :lazy %></p>
-        <p><%= truncate result.overview, length: 300 %></p>
-        <p><%= link_to 'Add this Show', shows_path(ref: result.id), method: :post, class: "btn btn-primary" %></p>
+      <td class="row">
+        <div class="col-12 col-lg-3 text-center">
+          <%= image_tag banner_url(result.banner), width: 150, class: "img-fluid", alt: "Poster", loading: :lazy %>
+        </div>
+        <div class="col-12 col-lg-9 mt-4 mt-sm-0">
+          <h3><%= result.name %></h3>
+          <p><%= result.network.presence || '-' %></p>
+          <p><%= truncate result.overview, length: 300 %></p>
+          <p><%= link_to 'Add this Show', shows_path(ref: result.id), method: :post, class: "btn btn-primary" %></p>
+        </div>
       </td>
     </tr>
   <% end %>
