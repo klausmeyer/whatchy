@@ -47,7 +47,7 @@ end
 
 # custom
 
-gem 'airbrake', '~> 9.4'
+gem 'airbrake', '~> 10.0'
 gem 'bootstrap', '~> 4.3'
 gem 'devise', '~> 4.7'
 gem 'devise-bootstrap-views', '~> 1.1'
