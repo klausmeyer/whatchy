@@ -1,6 +1,10 @@
 module ApplicationHelper
-  def banner_url(path)
-    "#{Rails.application.config.x.banner_cache_host}#{path}"
+  def cover_url(show)
+    if show.image.present?
+      "#{Rails.application.config.x.banner_cache_host}#{show.image}"
+    else
+      image_url "cover-placeholder.png"
+    end
   end
 
   def navigation_item(text, link)
