@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def cover_url(show)
-    if show.image.present?
-      "#{Rails.application.config.x.banner_cache_host}#{show.image}"
+  def cover_url(path)
+    if path.present?
+      "#{Rails.application.config.x.banner_cache_host}#{path}"
     else
       image_url "cover-placeholder.png"
     end
