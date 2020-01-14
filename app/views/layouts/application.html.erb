@@ -54,7 +54,9 @@
       <br>
       TV information and images are provided by <a target="_blank" href="https://www.thetvdb.com/">TheTVDB.com</a>, but we are not endorsed or certified by <a target="_blank" href="https://www.thetvdb.com/">TheTVDB.com</a> or its affiliates.
       <br>
-      Last update: <%= l Episode.order(updated_at: :desc).first.updated_at, format: :long %>
+      <% if last_updated_episode = Episode.order(updated_at: :desc).first %>
+        Last update: <%= l last_updated_episode.updated_at, format: :long %>
+      <% end %>
       &middot;
       Code available on <a href="https://github.com/klausmeyer/whatchy">GitHub</a> :)
     </div>
