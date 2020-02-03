@@ -51,6 +51,18 @@ RSpec.describe Episodes::UnseenQuery do
             expect(result.count).to eq episodes.count - seen_episodes.count
           end
         end
+
+        context 'with episodes airing in future' do
+          before do
+            future_episodes.each { |e| e.update! first_aired: Date.today + 3.months }
+          end
+
+          let(:future_episodes) { episodes.take(3) }
+
+          it 'returns only the seen episodes' do
+            expect(result.count).to eq episodes.count - future_episodes.count
+          end
+        end
       end
     end
 
