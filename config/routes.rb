@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show]
 
-  resources :subscriptions, only: [:index]
+  resources :subscriptions, only: [:index] do
+    get :upcoming, on: :collection
+  end
 
   resources :shows, only: [:index, :show, :new, :create], param: :slug do
     get :search, on: :collection

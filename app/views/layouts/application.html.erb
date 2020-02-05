@@ -27,6 +27,7 @@
           <ul class="navbar-nav mr-auto">
             <% if user_signed_in? %>
               <%= navigation_item "Home", root_path %>
+              <%= navigation_item "Upcoming", upcoming_subscriptions_path %>
               <%= navigation_item "Explore", shows_path %>
               <%= navigation_item "Subscriptions", subscriptions_path %>
               <%= navigation_item "Activities", activities_path %>

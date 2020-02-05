@@ -1,0 +1,20 @@
+<div class="d-flex align-items-center justify-content-between">
+  <div>
+    <h2>Upcoming</h2>
+    <p>
+      The following shows have upcoming episodes in future:
+    </p>
+  </div>
+</div>
+
+<hr />
+
+<% if @shows.any? %>
+  <%= render @shows %>
+  <%= paginate @shows %>
+<% else %>
+  <div class="text-center bg-light my-5 py-5">
+    <h2>Oh no!</h2>
+    <p>None of your subscriptions has upcoming episodes.</p>
+  </div>
+<% end %>
