@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @shows = Shows::UnseenQuery.new.for_user(current_user, future: false).page(page)
+    @shows = Shows::UnseenQuery.new.for_user(current_user, future: false).sorted_by_title.page(page)
   end
 
   private

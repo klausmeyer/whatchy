@@ -4,7 +4,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def upcoming
-    @shows = Shows::UnseenQuery.new.for_user(current_user, future: true).page(page)
+    @shows = Shows::UnseenQuery.new.for_user(current_user, future: true).sorted_by_title.page(page)
   end
 
   private
