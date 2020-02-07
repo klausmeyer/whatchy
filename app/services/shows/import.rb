@@ -6,14 +6,16 @@ module Shows
 
     def call
       Show.find_or_initialize_by(thetvdb_ref: ref).tap do |show|
-        result  = thetvdb.series(ref)
-        posters = result.posters
+        thetvdb.with_language(show.language.to_sym) do
+          result  = thetvdb.series(ref)
+          posters = result.posters
 
-        show.title    = result.name
-        show.slug     = result.slug
-        show.image    = "/banners/#{posters.first.fileName}" if posters.any?
-        show.overview = result.overview
-        show.save!
+          show.title    = result.name
+          show.slug     = result.slug
+          show.image    = "/banners/#{posters.first.fileName}" if posters.any?
+          show.overview = result.overview
+          show.save!
+        end
 
         Episodes::Import.new(show: show).call
       end

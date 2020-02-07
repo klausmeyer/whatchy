@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_01_140413) do
+ActiveRecord::Schema.define(version: 2020_02_07_182031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_140413) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug", default: -> { "md5((random())::text)" }, null: false
     t.boolean "block_sync", default: false, null: false
+    t.string "language", default: "en", null: false
     t.index ["slug"], name: "index_shows_on_slug", unique: true
   end
 
