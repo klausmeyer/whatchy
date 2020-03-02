@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_07_182031) do
+ActiveRecord::Schema.define(version: 2020_03_02_180305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_02_07_182031) do
     t.string "slug", default: -> { "md5((random())::text)" }, null: false
     t.boolean "block_sync", default: false, null: false
     t.string "language", default: "en", null: false
+    t.string "imdb_ref"
     t.index ["slug"], name: "index_shows_on_slug", unique: true
   end
 

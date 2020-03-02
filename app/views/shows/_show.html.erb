@@ -13,13 +13,18 @@
   </div>
   <div class="col-12 col-lg-9 mt-4 mt-sm-0">
     <h3><%= link_to show.title, show %></h3>
-    <p class="mr-lg-5 pr-lg-5">
-      <% if list_view %>
-        <%= truncate show.overview, length: 300 %>
-      <% else %>
-        <%= show.overview %>
-      <% end %>
-    </p>
+    <% if list_view %>
+      <p class="mr-lg-5 pr-lg-5"><%= truncate show.overview, length: 300 %></p>
+    <% else %>
+      <p class="mr-lg-5 pr-lg-5"> <%= show.overview %></p>
+      <p>
+        More on
+        <%= link_to "TheTVDB", "https://thetvdb.com/series/#{show.slug}" %>
+        <% if show.imdb_ref.present? %>
+          or <%= link_to "IMDb", "https://www.imdb.com/title/#{show.imdb_ref}" %>.
+        <% end %>
+      </p>
+    <% end %>
 
     <% if watched_state %>
       <div class="progress mb-3" style="height: 20px">
