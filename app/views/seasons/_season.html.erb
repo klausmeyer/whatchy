@@ -9,7 +9,11 @@
 
   <div id="<%= dom_id(season) %>" class="collapse <% if season_iteration.index == 0 %>show<% end %>" data-parent="#season-list">
     <div class="card-body">
-      <%= render season.episodes.sorted_by_number %>
+      <%= render season.episodes.aired.sorted_by_number %>
+      <% if season.episodes.aired.any? && season.episodes.upcoming.any? %>
+        <hr class="mb-4" />
+      <% end %>
+      <%= render season.episodes.upcoming.sorted_by_number %>
 
       <p>
         <% if Episodes::UnseenQuery.new(season).for_user(current_user).any? %>
