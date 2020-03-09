@@ -1,12 +1,7 @@
-<%
-  state = current_user.episode_states.find_by(episode: episode)
-  seen  = state&.seen_at&.present?
-%>
-
 <div class="row">
   <div class="col">
     <div class="custom-control custom-switch">
-      <%= check_box_tag :seen, nil, seen, class: "custom-control-input", id: dom_id(episode, :seen), data: { remote: true, method: :put, url: episode_state_path(episode) } %>
+      <%= check_box_tag :seen, nil, episode.seen_at.present?, class: "custom-control-input", id: dom_id(episode, :seen), data: { remote: true, method: :put, url: episode_state_path(episode) } %>
       <%= content_tag :label, "Seen", class: "custom-control-label", for: dom_id(episode, :seen) %>
     </div>
   </div>
