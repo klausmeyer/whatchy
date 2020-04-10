@@ -3,7 +3,7 @@ class Episode < ApplicationRecord
   has_one :show, through: :season
   has_many :episode_states, dependent: :destroy
 
-  scope :aired, -> { where('first_aired <= ?', Date.today) }
+  scope :aired, -> { where('first_aired IS NULL OR first_aired <= ?', Date.today) }
   scope :upcoming, -> { where('first_aired > ?', Date.today) }
 
   scope :sorted_by_number, -> { order(number: :asc) }
