@@ -47,6 +47,8 @@ end
 
 # custom
 
+gem 'active_model_serializers', '~> 0.10.10'
+gem 'doorkeeper', '~> 5.3'
 gem 'airbrake', '~> 10.0'
 gem 'bootstrap', '~> 4.3'
 gem 'devise', '~> 4.7'
@@ -62,4 +64,5 @@ end
 group :development, :test do
   gem 'factory_bot_rails', '~> 5.0'
   gem 'rspec-rails', '~> 4.0'
+  gem 'json_spec', '~> 1.1'
 end

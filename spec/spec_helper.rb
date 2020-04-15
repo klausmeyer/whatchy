@@ -94,3 +94,9 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+require 'json_spec'
+
+JsonSpec.configure do
+  exclude_keys []
+end

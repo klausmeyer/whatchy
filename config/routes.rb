@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
+  use_doorkeeper
+
   devise_for :users
 
   root to: 'home#index'
+
+  namespace :api do
+    namespace :v1 do
+      resource :user, only: [:show]
+      namespace :shows do
+        resources :subscriptions, only: [:index]
+      end
+    end
+  end
 
   resources :activities, only: [:index]
 
