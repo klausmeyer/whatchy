@@ -18,7 +18,7 @@ RSpec.describe 'GET /api/v1/shows/subscriptions' do
     let(:headers) do
       {
         'Authorization' => "Bearer #{token.token}",
-        'Accept' => 'application/json'
+        'Accept'        => 'application/json'
       }
     end
 

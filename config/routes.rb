@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resource :user, only: [:show]
       namespace :shows do
         resources :subscriptions, only: [:index]
+        resources :unseen, only: [:index]
       end
     end
   end
