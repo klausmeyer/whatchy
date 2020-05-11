@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       namespace :shows do
         resources :subscriptions, only: [:index]
         resources :unseen, only: [:index]
+        resources :upcoming, only: [:index]
       end
     end
   end
