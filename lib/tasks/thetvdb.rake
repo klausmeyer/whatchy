@@ -4,7 +4,7 @@ namespace :thetvdb do
     Show.all.each do |show|
       puts "Synchronizing Show Ref #{show.thetvdb_ref} (#{show.title})"
       Shows::Import.new(ref: show.thetvdb_ref).call
-    rescue RuntimeError => e
+    rescue StandardError => e
       puts "ERROR: #{e.inspect}"
       Airbrake.notify(e)
     end

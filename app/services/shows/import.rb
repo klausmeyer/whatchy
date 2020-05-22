@@ -7,19 +7,22 @@ module Shows
     def call
       Show.find_or_initialize_by(thetvdb_ref: ref).tap do |show|
         thetvdb.with_language(show.language.to_sym) do
-          result  = thetvdb.series(ref)
-          posters = result.posters
+          if result = thetvdb.series(ref)
+            posters = result.posters
 
-          show.title    = result.name
-          show.slug     = result.slug.parameterize
-          show.image    = "/banners/#{posters.first.fileName}" if posters.any?
-          show.overview = result.overview
-          show.imdb_ref = result.imdbId
-          show.rating   = result.siteRating.to_d
-          show.save!
+            show.title    = result.name
+            show.slug     = result.slug.parameterize
+            show.image    = "/banners/#{posters.first.fileName}" if posters.any?
+            show.overview = result.overview
+            show.imdb_ref = result.imdbId
+            show.rating   = result.siteRating.to_d
+            show.save!
+
+            Episodes::Import.new(show: show).call
+          else
+            Rails.logger.info 'Nothing found in TheTVDB Api'
+          end
         end
-
-        Episodes::Import.new(show: show).call
       end
     end
 
