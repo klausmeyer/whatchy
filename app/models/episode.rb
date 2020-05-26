@@ -8,6 +8,10 @@ class Episode < ApplicationRecord
 
   scope :sorted_by_number, -> { order(number: :asc) }
 
+  def self.with_and_ordered_by_season
+    includes(:season).order('seasons.number ASC, episodes.number ASC')
+  end
+
   def display_number
     'S%02dE%02d' % [season.number, number]
   end

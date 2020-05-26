@@ -12,6 +12,10 @@ Rails.application.routes.draw do
         resources :subscriptions, only: [:index]
         resources :unseen, only: [:index]
         resources :upcoming, only: [:index]
+
+        scope ':show_slug' do
+          resources :episodes, only: [:index]
+        end
       end
     end
   end
