@@ -3,7 +3,7 @@ module Api
     module Shows
       class EpisodesController < BaseController
         def index
-          respond_with show.episodes.with_and_ordered_by_season, each_serializer: EpisodeSerializer
+          respond_with show.episodes.with_and_ordered_by_season.page(page_number).per(page_size), each_serializer: EpisodeSerializer
         end
 
         private
