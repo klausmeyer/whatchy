@@ -62,7 +62,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_bot_rails', '~> 5.0'
+  gem 'factory_bot_rails', '~> 6.0'
   gem 'rspec-rails', '~> 4.0'
   gem 'json_spec', '~> 1.1'
 end
