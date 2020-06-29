@@ -14,11 +14,15 @@ jobs:
         image: postgres:11
         ports:
           - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     env:
       RALS_ENV: test
       PGHOST: localhost
       PGUSER: postgres
+      PGPASSWORD: postgres
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
