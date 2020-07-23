@@ -31,5 +31,8 @@ module Whatchy
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Custom
+    config.time_zone = 'Europe/Berlin'
   end
 end
