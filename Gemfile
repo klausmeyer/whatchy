@@ -55,7 +55,7 @@ gem 'devise', '~> 4.7'
 gem 'devise-bootstrap-views', '~> 1.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'kaminari', '~> 1.1'
-gem 'tvdb2', '~> 0.1.3', github: 'pioz/tvdb2'
+gem 'tvdb2', '~> 0.1.3', github: 'klausmeyer/tvdb2', branch: 'remove-uri-escape'
 
 group :development do
   gem 'dotenv-rails', '~> 2.7'
