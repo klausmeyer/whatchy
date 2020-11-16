@@ -1,7 +1,6 @@
 GIT
-  remote: https://github.com/klausmeyer/tvdb2.git
-  revision: 5d87183a9f2630e7e1d94afef4fc37b4b0ec6b65
-  branch: remove-uri-escape
+  remote: https://github.com/pioz/tvdb2.git
+  revision: 2d57ae5abb5a27df6194fc55f58870ac901d2550
   specs:
     tvdb2 (0.1.3)
       httparty (~> 0.15)
