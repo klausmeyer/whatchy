@@ -1,12 +1,13 @@
-<p>Results:</p>
+<h2>Search</h2>
 
+<% if @results.any? %>
 <table class="table table-striped">
   <% @results.each do |result| %>
-    <% next if result.banner.blank? %>
     <tr>
       <td class="row">
         <div class="col-12 col-lg-3 text-center">
-          <%= image_tag cover_url(result.banner), width: 150, class: "img-fluid", alt: "Poster", loading: :lazy %>
+          <%- poster = result.posters.first %>
+          <%= image_tag cover_url("/banners/#{poster.fileName}"), width: 150, class: "img-fluid", alt: "Poster", loading: :lazy unless poster.nil? %>
         </div>
         <div class="col-12 col-lg-9 mt-4 mt-sm-0">
           <h3><%= result.name %></h3>
@@ -18,3 +19,6 @@
     </tr>
   <% end %>
 </table>
+<% else %>
+  <p>No results</p>
+<% end %>

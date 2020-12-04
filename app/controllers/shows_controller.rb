@@ -8,7 +8,7 @@ class ShowsController < ApplicationController
   end
 
   def search
-    @results = thetvdb.search(name: params[:keywords])
+    @results = thetvdb.search(name: params[:keywords]).first(15)
   end
 
   def create
