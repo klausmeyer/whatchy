@@ -17,6 +17,9 @@
       <% unless show.rating.zero? %>
         <span class="badge badge-pill badge-info align-text-top mt-n1"><%= show.rating %></span>
       <% end %>
+      <% if show.network.present? %>
+        <p>Network: <%= show.network %></p>
+      <% end %>
     </div>
 
     <% if list_view %>

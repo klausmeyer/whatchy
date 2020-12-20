@@ -12,6 +12,7 @@ module Shows
 
             show.title    = result.name
             show.slug     = result.slug.parameterize
+            show.network  = result.network
             show.image    = "/banners/#{posters.first.fileName}" if posters.any?
             show.overview = result.overview
             show.imdb_ref = result.imdbId
