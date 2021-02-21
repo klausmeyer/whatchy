@@ -1,10 +1,14 @@
 class ShowsController < ApplicationController
   def index
+    page_title "Explore"
+
     @shows = Show.sorted_by_title.page(page)
   end
 
   def show
     @show = Show.find_by! slug: params[:slug]
+
+    page_title @show.title
   end
 
   def search

@@ -1,4 +1,8 @@
 class ActivitiesController < ApplicationController
+  before_action do
+    page_title "Activities"
+  end
+
   def index
     @history_entries = history_entries.sort.reverse
   end
