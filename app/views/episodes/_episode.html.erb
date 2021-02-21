@@ -2,12 +2,12 @@
   <div class="col">
     <div class="custom-control custom-switch">
       <%= check_box_tag :seen, nil, episode.seen_at.present?, class: "custom-control-input", id: dom_id(episode, :seen), data: { remote: true, method: :put, url: episode_state_path(episode) } %>
-      <%= content_tag :label, "Seen", class: "custom-control-label", for: dom_id(episode, :seen) %>
+      <%= seen_at_label episode %>
     </div>
   </div>
   <div class="col"><pre><%= episode.display_number %></pre></div>
   <div class="col col-lg-7 d-none d-sm-block"><%= episode.title %></div>
   <div class="col d-none d-sm-block">
-    <%= episode.first_aired %>
+    <small>Air:</small> <%= episode.first_aired %>
   </div>
 </div>

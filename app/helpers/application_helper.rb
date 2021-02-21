@@ -12,4 +12,16 @@ module ApplicationHelper
       link_to text, link, class: "nav-link"
     end
   end
+
+  def seen_at_label(episode)
+    if episode.seen_at.present?
+      text  = "Seen"
+      title = localize(episode.seen_at)
+    else
+      text  = "Not seen"
+      title = nil
+    end
+
+    content_tag :label, text, title: title, class: "custom-control-label", for: dom_id(episode, :seen)
+  end
 end
