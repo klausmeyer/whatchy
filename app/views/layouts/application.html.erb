@@ -35,6 +35,10 @@
           </ul>
 
           <% if user_signed_in? %>
+            <%= form_with url: shows_path, method: :get, remote: false, class: "d-flex" do |f| %>
+              <%= f.text_field :search, placeholder: "Search …", class: "form-control form-control-sm mr-3", value: params[:search] %>
+            <% end %>
+
             <%= link_to profile_path, class: "text-light" do %>
               <%= image_tag "https://www.gravatar.com/avatar/#{current_user.gravatar_hash}?d=mp", class: "rounded-circle mr-2", size: "36x36" %>
             <% end %>
