@@ -2,7 +2,7 @@
 
 Rails app to track tv shows / series.
 
-It gets it's data from [TheTVDB.com][https://www.thetvdb.com].
+It gets it's data from [TheTVDB.com](https://www.thetvdb.com).
 
 ## Screenshots
 
@@ -35,7 +35,7 @@ The following environment variables are available:
 
 ## Deployment
 
-By default the application is designed to run at [Heroku][https://www.heroku.com].
+By default the application is designed to run at [Heroku](https://www.heroku.com).
 
 In addition to the default `web` process defined in the `Procfile` a cronjob is required to be defined in the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler):
 
