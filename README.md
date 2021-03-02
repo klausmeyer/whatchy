@@ -2,7 +2,7 @@
 
 Rails app to track tv shows / series.
 
-It gets it's data from [thetvdb.com][thetvdb].
+It gets it's data from [TheTVDB.com][https://www.thetvdb.com].
 
 ## Screenshots
 
@@ -16,18 +16,33 @@ Show Details
 
 ## Configuration
 
-The following environment variables needs to be set:
+The following environment variables are available:
 
-* `BANNER_CACHE_HOST`: A host which is serving the images provided by [thetvdb.com][thetvdb]. Recommendation is to use a CDN like CloudFront to cache the images and not directly load them from [thetvdb.com][thetvdb].
-* `THETVDB_APIKEY`: Credential for [thetvdb.com][thetvdb] in order to fetch data via their API.
+| Name                  | Mandatory |          Default          | Description                                                 |
+| --------------------- | :-------: | :-----------------------: | ----------------------------------------------------------- |
+| `AIRBRAKE_PROJECT_ID` |     -     |            999            | Project ID on [airbrake.io](https://airbrake.io)            |
+| `AIRBRAKE_API_KEY`    |     -     |     airbrake-api-key      | API key for [airbrake.io](https://airbrake.io)              |
+| `BANNER_CACHE_HOST`   |     -     | https://cache.example.com | Host serving the images provided by [thetvdb.com][thetvdb]. |
+| `DATABASE_URL`        |     x     |             -             | Database credentials in URL format.                         |
+| `DOMAIN`              |     -     |             -             | Domain used for mail sender-address and links.              |
+| `SMTP_ENABLED`        |     -     |             -             | Sending mails via SMTP (`true`/`false`).                    |
+| `SMTP_SERVER`         |     -     |             -             | Hostname of the mail server.                                |
+| `SMTP_PORT`           |     -     |            587            | Port of the mail server.                                    |
+| `SMTP_USERNAME`       |     -     |             -             | Username for the mail server.                               |
+| `SMTP_PASSWORD`       |     -     |             -             | Password for the mail server.                               |
+| `RAILS_LOG_TO_STDOUT` |     -     |             -             | Log to process standard out (`true`/`false`).               |
+| `THETVDB_APIKEY`      |     x     |             -             | API key for [thetvdb.com][thetvdb].                         |
 
 ## Deployment
 
-By default the application is designed to run at [Heroku][heroku].
+By default the application is designed to run at [Heroku][https://www.heroku.com].
+
+In addition to the default `web` process defined in the `Procfile` a cronjob is required to be defined in the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler):
+
+```
+rake crons:daily
+```
 
 ## Licence
 
 The application is available as open source under the terms of the MIT License.
-
-[thetvdb]: https://www.thetvdb.com
-[heroku]: https://www.heroku.com
