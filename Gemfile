@@ -59,7 +59,7 @@ end
 gem 'active_model_serializers', '~> 0.10.12'
 gem 'doorkeeper', '~> 5.3'
 gem 'airbrake', '~> 11.0'
-gem 'bootstrap', '~> 4.3'
+gem 'bootstrap', '~> 5.0'
 gem 'devise', '~> 4.7'
 gem 'devise-bootstrap-views', '~> 1.1'
 gem 'jquery-rails', '~> 4.3'
