@@ -21,6 +21,8 @@ RSpec.describe 'GET /api/v1/shows/:slug/episodes' do
     let!(:episode1) { FactoryBot.create :episode, season: season1 }
     let!(:episode2) { FactoryBot.create :episode, season: season2 }
 
+    let!(:episode_state1) { FactoryBot.create :episode_state, :seen, user: user, episode: episode1 }
+
     let(:headers) do
       {
         'Authorization' => "Bearer #{token.token}",
@@ -38,7 +40,8 @@ RSpec.describe 'GET /api/v1/shows/:slug/episodes' do
         attributes: {
           season: season1.number,
           number: episode1.number,
-          title: episode1.title
+          title: episode1.title,
+          'seen-at': episode_state1.seen_at.utc.iso8601(3)
         }
       }.to_json).at_path('data/0')
     end
