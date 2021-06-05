@@ -10,15 +10,17 @@ module Episodes
         return
       end
 
-      thetvdb.series(show.thetvdb_ref).episodes.each do |episode|
-        next if episode.seasonNumber.to_i < 1
-        next if episode.firstAired.blank?
+      thetvdb.with_language(show.language.to_sym) do
+        thetvdb.series(show.thetvdb_ref).episodes.each do |episode|
+          next if episode.seasonNumber.to_i < 1
+          next if episode.firstAired.blank?
 
-        season = show.seasons.find_or_create_by(number: episode.seasonNumber)
-        season.episodes.find_or_initialize_by(number: episode.number).tap do |record|
-          record.title       = episode.name
-          record.first_aired = episode.firstAired
-          record.save!
+          season = show.seasons.find_or_create_by(number: episode.seasonNumber)
+          season.episodes.find_or_initialize_by(number: episode.number).tap do |record|
+            record.title       = episode.name
+            record.first_aired = episode.firstAired
+            record.save!
+          end
         end
       end
     end
