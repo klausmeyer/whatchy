@@ -9,6 +9,8 @@ RSpec.describe EpisodeStates::BulkUpdate do
 
   describe '#call' do
     shared_examples 'updating episode states' do
+      let(:episodes_seen_at) { episodes.map { |e| e.episode_states.first.seen_at } }
+
       context 'with seen: true in params' do
         let(:params) do
           { seen: 'true' }
@@ -17,7 +19,7 @@ RSpec.describe EpisodeStates::BulkUpdate do
         it 'sets the episodes to seen' do
           instance.call
 
-          expect(episodes.all? { |e| e.episode_states.first.seen_at.present? }).to be true
+          expect(episodes_seen_at).to all(be_present)
         end
       end
 
@@ -29,7 +31,7 @@ RSpec.describe EpisodeStates::BulkUpdate do
         it 'sets the episodes to unseen' do
           instance.call
 
-          expect(episodes.all? { |e| e.episode_states.first.seen_at.present? }).to be false
+          expect(episodes_seen_at).to all(be_nil)
         end
       end
     end
