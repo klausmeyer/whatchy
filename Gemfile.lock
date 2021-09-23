@@ -73,9 +73,9 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    airbrake (11.0.3)
-      airbrake-ruby (~> 5.1)
-    airbrake-ruby (5.2.0)
+    airbrake (12.0.0)
+      airbrake-ruby (~> 6.0)
+    airbrake-ruby (6.0.0)
       rbtree3 (~> 0.5)
     autoprefixer-rails (10.2.0.0)
       execjs
@@ -276,7 +276,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.12)
-  airbrake (~> 11.0)
+  airbrake (~> 12.0)
   bootsnap (>= 1.4.4)
   bootstrap (~> 4.3)
   byebug
