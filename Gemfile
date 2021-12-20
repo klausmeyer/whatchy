@@ -56,7 +56,7 @@ end
 
 # custom
 
-gem 'active_model_serializers', '~> 0.10.12'
+gem 'jsonapi-rails', '~> 0.4.0'
 gem 'doorkeeper', '~> 5.3'
 gem 'airbrake', '~> 12.0'
 gem 'bootstrap', '~> 4.3'

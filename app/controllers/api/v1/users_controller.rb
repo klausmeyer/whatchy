@@ -1,8 +1,8 @@
 module Api
   module V1
-    class UsersController < Api::BaseController
+    class UsersController < BaseController
       def show
-        respond_with current_user
+        render jsonapi: current_user
       end
     end
   end

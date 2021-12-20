@@ -3,7 +3,7 @@ module Api
     module Shows
       class UnseenController < BaseController
         def index
-          respond_with ::Shows::UnseenQuery.new.for_user(current_user, future: false).sorted_by_title.page(page_number).per(page_size), each_serializer: ShowSerializer
+          render jsonapi: ::Shows::UnseenQuery.new.for_user(current_user, future: false).sorted_by_title.page(page_number).per(page_size)
         end
       end
     end
