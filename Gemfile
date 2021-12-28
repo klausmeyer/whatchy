@@ -57,7 +57,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   # gem "web-console"
 
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
+  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]r
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
@@ -76,7 +76,7 @@ end
 gem "jsonapi-rails", "~> 0.4.0"
 gem "doorkeeper", "~> 5.3"
 gem "airbrake-ruby", github: "tnir/airbrake-ruby", branch: "ruby-7.0.0-workaround"
-gem "airbrake", "~> 12.0"
+gem "airbrake", github: "tnir/airbrake", branch: "rails-7.0.0"
 gem "bootstrap", "~> 4.3"
 gem "devise", "~> 4.7"
 gem "devise-bootstrap-views", "~> 1.1"
