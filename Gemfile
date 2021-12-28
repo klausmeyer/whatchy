@@ -58,6 +58,7 @@ end
 
 gem 'jsonapi-rails', '~> 0.4.0'
 gem 'doorkeeper', '~> 5.3'
+gem 'airbrake-ruby', github: 'tnir/airbrake-ruby', branch: 'ruby-7.0.0-workaround'
 gem 'airbrake', '~> 12.0'
 gem 'bootstrap', '~> 4.3'
 gem 'devise', '~> 4.7'
