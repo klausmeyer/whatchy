@@ -3,7 +3,7 @@
   watched_state   = defined?(watched_state) && watched_state
   unseen_episodes = Episodes::UnseenQuery.new(show).for_user(current_user)
   seen_episodes   = current_user.episode_states.where(episode: show.episodes).where.not(seen_at: nil)
-  seen_percent    = (seen_episodes.size.to_f / show.episodes.size.to_f * 100.0).floor
+  seen_percent    = show.episodes.size.positive? ? (seen_episodes.size.to_f / show.episodes.size.to_f * 100.0).floor : 0
 %>
 <%= content_tag :div, class: ["row", list_view ? "align-items-center" : nil] do %>
   <div class="col-12 col-lg-3 text-center">
