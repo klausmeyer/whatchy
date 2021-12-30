@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.3'
+ruby '3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.4'
@@ -75,3 +75,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0'
   gem 'json_spec', '~> 1.1'
 end
+
+# support for ruby 3.1
+gem 'net-smtp', require: 'net/smtp'
