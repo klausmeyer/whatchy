@@ -75,3 +75,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0'
   gem 'json_spec', '~> 1.1'
 end
+
+# support for ruby 3.1
+gem 'net-smtp', require: 'net/smtp'
