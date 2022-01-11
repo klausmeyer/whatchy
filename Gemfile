@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.3"
+ruby "3.1.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "~> 7.0.1"
@@ -83,7 +83,7 @@ gem "devise-bootstrap-views", "~> 1.1"
 gem "turbolinks", "~> 5.2"
 gem "jquery-rails", "~> 4.3"
 gem "kaminari", "~> 1.1"
-gem "tvdb2", "~> 0.1.3", github: "pioz/tvdb2"
+gem "tvdb2", github: "pioz/tvdb2", ref: "2d57ae5"
 
 group :development do
   gem "dotenv-rails", "~> 2.7"
