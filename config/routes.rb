@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'home#index'
+  root to: "home#index"
 
   namespace :api do
     namespace :v1 do
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         resources :unseen, only: [:index]
         resources :upcoming, only: [:index]
 
-        scope ':show_slug' do
+        scope ":show_slug" do
           resources :episodes, only: [:index]
         end
       end
