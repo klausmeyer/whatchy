@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/tnir/airbrake.git
-  revision: 01a551c01fd28b9188eddc3457710c8f9a0fddd4
+  revision: 601193db2c937fe3f00e75d10c5b4b8701688c3c
   branch: rails-7.0.0
   specs:
     airbrake (12.0.0)
@@ -94,7 +94,7 @@ GEM
     autoprefixer-rails (10.3.3.0)
       execjs (~> 2)
     bcrypt (3.1.16)
-    bootsnap (1.9.3)
+    bootsnap (1.9.4)
       msgpack (~> 1.0)
     bootstrap (4.6.1)
       autoprefixer-rails (>= 9.1.0)
@@ -128,7 +128,7 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    ffi (1.15.4)
+    ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     httparty (0.20.0)
@@ -136,7 +136,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
-    io-console (0.5.9)
+    io-console (0.5.11)
     io-wait (0.2.1)
     irb (1.4.1)
       reline (>= 0.3.0)
@@ -203,7 +203,7 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.0)
+    nokogiri (1.13.1)
       mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -243,7 +243,7 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     rbtree3 (0.7.0)
-    reline (0.3.0)
+    reline (0.3.1)
       io-console (~> 0.5)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -331,4 +331,4 @@ RUBY VERSION
    ruby 3.1.0p0
 
 BUNDLED WITH
-   2.2.32
+   2.3.3
