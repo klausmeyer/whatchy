@@ -7,22 +7,6 @@ GIT
       httparty (~> 0.15)
       memoist (~> 0.16)
 
-GIT
-  remote: https://github.com/tnir/airbrake-ruby.git
-  revision: f4bdea433af8b304f4b1e07574af83f5a3395cb8
-  branch: ruby-7.0.0-workaround
-  specs:
-    airbrake-ruby (6.0.1)
-      rbtree3 (~> 0.6)
-
-GIT
-  remote: https://github.com/tnir/airbrake.git
-  revision: 601193db2c937fe3f00e75d10c5b4b8701688c3c
-  branch: rails-7.0.0
-  specs:
-    airbrake (12.0.0)
-      airbrake-ruby (~> 6.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -91,6 +75,10 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    airbrake (13.0.0)
+      airbrake-ruby (~> 6.0)
+    airbrake-ruby (6.0.2)
+      rbtree3 (~> 0.5)
     autoprefixer-rails (10.3.3.0)
       execjs (~> 2)
     bcrypt (3.1.16)
@@ -304,8 +292,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake!
-  airbrake-ruby!
+  airbrake (~> 13.0.0)
   bootsnap
   bootstrap (~> 4.3)
   debug
