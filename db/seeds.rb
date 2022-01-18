@@ -3,12 +3,12 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
 
 
-User.find_or_initialize_by(email: 'admin@example.com').tap do |u|
-  u.password              = '12345678'
+User.find_or_initialize_by(email: "admin@example.com").tap do |u|
+  u.password              = "12345678"
   u.password_confirmation = u.password
   u.save!
 
