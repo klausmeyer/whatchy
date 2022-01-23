@@ -7,7 +7,7 @@
   <p>
     <ul>
       <% entries.each do |entry| %>
-        <li>
+        <li class="activity-entry">
           <% case entry %>
           <% when Subscription %>
             Subscribed to <%= link_to entry.show.title, entry.show %>
