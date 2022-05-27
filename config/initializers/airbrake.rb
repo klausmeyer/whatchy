@@ -62,6 +62,7 @@ Airbrake.configure do |c|
   # c.blaoklist_keys = Rails.application.config.filter_parameters
 
   c.remote_config = false
+  c.performance_stats = false
 end
 
 # A filter that collects request body information. Enable it if you are sure you
