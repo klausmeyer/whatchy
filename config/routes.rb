@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
+  get :ping, to: ->(env) { ["200", {"Content-Type" => "text/plain"}, ["pong"]] }
+
   namespace :api do
     namespace :v1 do
       resource :user, only: [:show]
