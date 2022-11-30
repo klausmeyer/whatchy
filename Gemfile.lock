@@ -103,7 +103,7 @@ GEM
     devise-bootstrap-views (1.1.0)
     diff-lcs (1.5.0)
     digest (3.1.0)
-    doorkeeper (5.6.0)
+    doorkeeper (5.6.2)
       railties (>= 5)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
