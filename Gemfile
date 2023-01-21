@@ -83,6 +83,7 @@ gem "turbolinks", "~> 5.2"
 gem "jquery-rails", "~> 4.3"
 gem "kaminari", "~> 1.1"
 gem "tvdb2", github: "pioz/tvdb2", ref: "2d57ae5"
+gem "health_check", "~> 3.1"
 
 group :development do
   gem "dotenv-rails", "~> 2.7"
