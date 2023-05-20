@@ -82,7 +82,7 @@ gem "devise-bootstrap-views", "~> 1.1"
 gem "turbolinks", "~> 5.2"
 gem "jquery-rails", "~> 4.3"
 gem "kaminari", "~> 1.1"
-gem "tvdb2", github: "pioz/tvdb2", ref: "2d57ae5"
+gem "tvdb2", github: "klausmeyer/tvdb2", branch: "fix-second-page-nil"
 gem "health_check", "~> 3.1"
 
 group :development do
