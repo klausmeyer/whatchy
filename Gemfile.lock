@@ -302,7 +302,7 @@ DEPENDENCIES
   kaminari (~> 1.1)
   pg (>= 0.18, < 2.0)
   puma (~> 6.0)
-  rails (~> 7.0.1)
+  rails (~> 7.0.5)
   rspec-rails (~> 6.0)
   sassc-rails
   sprockets-rails
