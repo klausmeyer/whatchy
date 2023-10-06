@@ -77,6 +77,7 @@ gem "doorkeeper", "~> 5.3"
 gem "airbrake", "~> 13.0.0"
 gem "bootstrap", "~> 4.3"
 gem "devise", "~> 4.7", github: "heartcombo/devise", ref: "f6e73e5" # NOTE: Rails 7.1.0 compat
+gem "devise-bootstrap-views", "~> 1.1"
 gem "turbolinks", "~> 5.2"
 gem "jquery-rails", "~> 4.3"
 gem "kaminari", "~> 1.1"
