@@ -10,14 +10,22 @@ module Shows
           if result = thetvdb.series(ref)
             posters = result.posters
 
-            show.title    = result.name
-            show.slug     = result.slug.parameterize
-            show.network  = result.network
-            show.image    = "/banners/#{posters.first.fileName}" if posters.any?
-            show.overview = result.overview
-            show.imdb_ref = result.imdbId
-            show.rating   = result.siteRating.to_d
+            show.title     = result.name
+            show.slug      = result.slug.parameterize
+            show.network   = result.network
+            show.image_url = "/banners/#{posters.first.fileName}" if posters.any?
+            show.overview  = result.overview
+            show.imdb_ref  = result.imdbId
+            show.rating    = result.siteRating.to_d
             show.save!
+
+            begin
+              Timeout.timeout(30.seconds) do
+                DownloadImage.new(self).call
+              end
+            rescue Timeout::Error
+              Rails.logger.error "Could not download image in allowed time"
+            end
 
             Episodes::Import.new(show: show).call
           else

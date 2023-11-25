@@ -48,7 +48,7 @@ RSpec.describe 'GET /api/v1/shows/unseen' do
             type: :shows,
             attributes: {
              title:    unseen_show.title,
-             image:    "https://cache.example.com#{unseen_show.image}",
+             image:    "https://cache.example.com#{unseen_show.image_url}",
              overview: unseen_show.overview,
              rating:   unseen_show.rating,
             }
