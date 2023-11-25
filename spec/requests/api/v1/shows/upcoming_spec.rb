@@ -41,7 +41,7 @@ RSpec.describe 'GET /api/v1/shows/upcoming' do
             type: :shows,
             attributes: {
              title:    upcoming_show.title,
-             image:    "https://cache.example.com#{upcoming_show.image}",
+             image:    "https://cache.example.com#{upcoming_show.image_url}",
              overview: upcoming_show.overview,
              rating:   upcoming_show.rating,
             }

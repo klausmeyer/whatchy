@@ -8,9 +8,9 @@ module Api
       attributes :title, :overview, :rating
 
       attribute :image do
-        return if object.image.blank?
+        return if object.image_url.blank?
 
-        "#{Rails.application.config.x.banner_cache_host}#{object.image}"
+        "#{Rails.application.config.x.banner_cache_host}#{object.image_url}"
       end
     end
   end

@@ -37,7 +37,7 @@ RSpec.describe 'GET /api/v1/shows/subscriptions' do
             type: :shows,
             attributes: {
              title:    show.title,
-             image:    "https://cache.example.com#{show.image}",
+             image:    "https://cache.example.com#{show.image_url}",
              overview: show.overview,
              rating:   show.rating,
             }
