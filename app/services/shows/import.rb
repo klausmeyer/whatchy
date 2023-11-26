@@ -21,7 +21,7 @@ module Shows
 
             begin
               Timeout.timeout(30.seconds) do
-                DownloadImage.new(self).call
+                DownloadImage.new(show).call
               end
             rescue Timeout::Error
               Rails.logger.error "Could not download image in allowed time"
