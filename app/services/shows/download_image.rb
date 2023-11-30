@@ -7,7 +7,8 @@ module Shows
     end
 
     def call
-      return unless show.image_url.present?
+      return if show.image.attached?
+      return if show.image_url.blank?
 
       show.image.attach(
         io: URI.open(full_image_uri),
