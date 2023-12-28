@@ -60,8 +60,10 @@
       TV information and images are provided by <a target="_blank" href="https://www.thetvdb.com/">TheTVDB.com</a>, but we are not endorsed or certified by <a target="_blank" href="https://www.thetvdb.com/">TheTVDB.com</a> or its affiliates.
       <br>
       <% if last_updated_episode = Episode.order(updated_at: :desc).first %>
-        Last update: <%= l last_updated_episode.updated_at, format: :long %>
+        Last content update: <%= l last_updated_episode.updated_at, format: :long %>
+        &middot;
       <% end %>
+      Version: <%= Rails.application.config.x.version %>
       &middot;
       Code available on <a href="https://github.com/klausmeyer/whatchy">GitHub</a> :)
     </div>
