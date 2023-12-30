@@ -88,8 +88,6 @@ GEM
       airbrake-ruby (~> 6.0)
     airbrake-ruby (6.2.2)
       rbtree3 (~> 0.6)
-    autoprefixer-rails (10.4.7.0)
-      execjs (~> 2)
     aws-eventstream (1.3.0)
     aws-partitions (1.873.0)
     aws-sdk-core (3.190.1)
@@ -111,10 +109,6 @@ GEM
     bigdecimal (3.1.4)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
-    bootstrap (4.6.2)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.16.1, < 2)
-      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
@@ -140,7 +134,6 @@ GEM
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
-    execjs (2.8.1)
     factory_bot (6.4.2)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.2)
@@ -336,7 +329,6 @@ DEPENDENCIES
   airbrake (~> 13.0.0)
   aws-sdk-s3
   bootsnap
-  bootstrap (~> 4.3)
   debug
   devise (~> 4.9)
   devise-bootstrap-views (~> 1.1)
@@ -349,6 +341,7 @@ DEPENDENCIES
   jsonapi-rails (~> 0.4.0)
   kaminari (~> 1.1)
   pg (>= 0.18, < 2.0)
+  popper_js (< 2)
   puma (>= 5.0)
   rails (~> 7.1.0)
   rspec-rails (~> 6.0)

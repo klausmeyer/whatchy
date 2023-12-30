@@ -1,8 +1,4 @@
-// bootstrap and theme
-@import "theme/lux/variables";
-@import "bootstrap";
-@import "theme/lux/bootswatch";
+@import "theme";
 
-// components
 @import "components/alert";
 @import "components/episode_list";
