@@ -95,3 +95,5 @@ Rails.application.configure do
   # custom
   config.action_mailer.default_url_options = { host: ENV["DOMAIN"] }
 end
+
+Rails.application.config.assets.logger = Logger.new($stdout)

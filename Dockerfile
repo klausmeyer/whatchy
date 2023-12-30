@@ -26,7 +26,7 @@ RUN apk update \
  && bundle config set build.sassc '--disable-march-tune-native' \
  && bundle config set without 'development test' \
  && bundle install \
- && bundle exec rails assets:precompile \
+ && bundle exec rails assets:precompile --trace \
  && addgroup -S app && adduser -S app -G app -h /app \
  && chown -R app.app /app \
  && chown -R app.app /usr/local/bundle
