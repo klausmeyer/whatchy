@@ -1,16 +1,4 @@
 GIT
-  remote: https://github.com/heartcombo/devise.git
-  revision: f6e73e5b5c8f519f4be29ac9069c6ed8a2343ce4
-  ref: f6e73e5
-  specs:
-    devise (4.9.2)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
-
-GIT
   remote: https://github.com/pioz/tvdb2.git
   revision: e720ffbc28656b02a003c9513a3e4948557bfeeb
   ref: e720ffb
@@ -119,7 +107,7 @@ GEM
     aws-sigv4 (1.8.0)
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
-    bcrypt (3.1.19)
+    bcrypt (3.1.20)
     bigdecimal (3.1.4)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
@@ -135,6 +123,12 @@ GEM
     debug (1.9.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (4.9.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     devise-bootstrap-views (1.1.0)
     diff-lcs (1.5.0)
     doorkeeper (5.6.8)
@@ -278,7 +272,7 @@ GEM
       psych (>= 4.0.0)
     reline (0.4.1)
       io-console (~> 0.5)
-    responders (3.1.0)
+    responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
     rspec (3.12.0)
@@ -344,7 +338,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 4.3)
   debug
-  devise (~> 4.7)!
+  devise (~> 4.9)
   devise-bootstrap-views (~> 1.1)
   doorkeeper (~> 5.3)
   dotenv-rails (~> 2.7)
@@ -367,4 +361,4 @@ RUBY VERSION
    ruby 3.2.2
 
 BUNDLED WITH
-   2.4.20
+   2.5.3
