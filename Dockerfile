@@ -21,6 +21,7 @@ ADD . .
 
 RUN apk update \
  && apk add build-base zlib-dev tzdata git nodejs openssl-dev shared-mime-info postgresql-dev libc6-compat \
+ && apk add c-ares --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
  && rm -rf /var/cache/apk/* \
  && gem install bundler -v $(tail -n1 Gemfile.lock | xargs) \
  && bundle config set build.sassc '--disable-march-tune-native' \
