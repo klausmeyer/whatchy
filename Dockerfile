@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-alpine3.18
+FROM ruby:3.2.2-alpine
 
 MAINTAINER Klaus Meyer <spam@klaus-meyer.net>
 
@@ -20,7 +20,7 @@ WORKDIR /app
 ADD . .
 
 RUN apk update \
- && apk add build-base zlib-dev tzdata git nodejs openssl-dev shared-mime-info postgresql-dev libc6-compat \
+ && apk add build-base zlib-dev tzdata git openssl-dev shared-mime-info postgresql-dev libc6-compat \
  && rm -rf /var/cache/apk/* \
  && gem install bundler -v $(tail -n1 Gemfile.lock | xargs) \
  && bundle config set build.sassc '--disable-march-tune-native' \
