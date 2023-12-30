@@ -338,7 +338,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 4.3)
   debug
-  devise (~> 4.9.3)
+  devise (~> 4.9)
   devise-bootstrap-views (~> 1.1)
   doorkeeper (~> 5.3)
   dotenv-rails (~> 2.7)
