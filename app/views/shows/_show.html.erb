@@ -8,10 +8,7 @@
 <%= content_tag :div, class: ["row", list_view ? "align-items-center" : nil] do %>
   <div class="col-12 col-lg-3 text-center">
     <%= link_to show do %>
-      <%-
-        url = show.image.attached? ? url_for(show.image) : cover_url(show.image_url)
-      %>
-      <%= image_tag url, width: list_view ? 150 : 250, class: "img-fluid", alt: "Poster", loading: :lazy %>
+      <%= image_tag show_image_url(show, thumb: list_view), width: list_view ? 150 : 250, class: "img-fluid", alt: "Poster", loading: :lazy %>
     <% end %>
   </div>
   <div class="col-12 col-lg-9 mt-4 mt-sm-0">

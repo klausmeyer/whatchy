@@ -5,7 +5,9 @@ class Show < ApplicationRecord
   has_many :seasons, dependent: :destroy
   has_many :episodes, through: :seasons
 
-  has_one_attached :image
+  has_one_attached :image do |attachable|
+    attachable.variant :thumb, resize_to_fill: [150, 220]
+  end
 
   def to_param
     slug
