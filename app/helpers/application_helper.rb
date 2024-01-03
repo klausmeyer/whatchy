@@ -24,4 +24,10 @@ module ApplicationHelper
 
     content_tag :label, text, title: title, class: "custom-control-label", for: dom_id(episode, :seen)
   end
+
+  def show_image_url(show, thumb:)
+    return cover_url(show.image_url) unless show.image.attached?
+
+    url_for(thumb ? show.image.variant(:thumb) : show.image)
+  end
 end
