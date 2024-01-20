@@ -20,7 +20,7 @@ WORKDIR /app
 ADD . .
 
 RUN apk update \
- && apk add build-base zlib-dev tzdata git openssl-dev shared-mime-info postgresql-dev libc6-compat \
+ && apk add build-base zlib-dev tzdata git openssl-dev shared-mime-info postgresql-dev libc6-compat vips-dev \
  && rm -rf /var/cache/apk/* \
  && gem install bundler -v $(tail -n1 Gemfile.lock | xargs) \
  && bundle config set build.sassc '--disable-march-tune-native' \
