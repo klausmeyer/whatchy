@@ -38,6 +38,8 @@ jobs:
         uses: ruby/setup-ruby@v1
       - name: Install Dependencies
         run: bundle install
+      - name: Setup database
+        run: bundle exec rails db:create db:migrate
       - name: Execute Tests
         run: bundle exec rspec
 
