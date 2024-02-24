@@ -358,7 +358,7 @@ DEPENDENCIES
   tvdb2!
 
 RUBY VERSION
-   ruby 3.2.3
+   ruby 3.3.0p0
 
 BUNDLED WITH
    2.5.3
