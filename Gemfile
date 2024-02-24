@@ -86,7 +86,7 @@ gem "health_check", "~> 3.1"
 gem "aws-sdk-s3", require: false
 
 group :development do
-  gem "dotenv-rails", "~> 2.7"
+  gem "dotenv-rails", "~> 3.0"
 end
 
 group :development, :test do
