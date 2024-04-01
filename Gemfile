@@ -85,11 +85,8 @@ gem "tvdb2", github: "pioz/tvdb2", ref: "e720ffb"
 gem "health_check", "~> 3.1"
 gem "aws-sdk-s3", require: false
 
-group :development do
-  gem "dotenv-rails", "~> 3.0"
-end
-
 group :development, :test do
+  gem "dotenv-rails", "~> 3.0"
   gem "factory_bot_rails", "~> 6.0"
   gem "rspec-rails", "~> 6.0"
   gem "json_spec", "~> 1.1"
