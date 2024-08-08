@@ -29,7 +29,7 @@ module Shows
 
             Episodes::Import.new(show: show).call
           else
-            Rails.logger.info 'Nothing found in TheTVDB Api'
+            Rails.logger.info "Nothing found in TheTVDB Api"
           end
         end
       end

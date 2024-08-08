@@ -40,6 +40,8 @@ jobs:
         run: bundle install
       - name: Setup database
         run: bundle exec rails db:create db:migrate
+      - name: Execute Linter
+        run: bundle exec rubocop
       - name: Execute Tests
         run: bundle exec rspec
 

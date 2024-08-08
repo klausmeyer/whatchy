@@ -1,7 +1,7 @@
 module Api
   module V1
     class SerializableEpisode < SerializableBase
-      type 'episodes'
+      type "episodes"
 
       attribute :season do
         object.season.number

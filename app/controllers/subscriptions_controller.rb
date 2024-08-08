@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
     page_title "Subscriptions"
 
     @shows = current_user.shows.sorted_by_title
-    @shows = @shows.where('title ILIKE ?', "%#{params[:search]}%") if params.key?(:search)
+    @shows = @shows.where("title ILIKE ?", "%#{params[:search]}%") if params.key?(:search)
     @shows = @shows.page(page)
   end
 
