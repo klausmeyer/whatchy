@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def navigation_item(text, link)
-    content_tag :li, class: ["nav-item", request.original_fullpath == link ? "active" : nil] do
+    content_tag :li, class: [ "nav-item", request.original_fullpath == link ? "active" : nil ] do
       link_to text, link, class: "nav-link"
     end
   end

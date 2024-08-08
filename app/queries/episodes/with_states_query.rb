@@ -10,7 +10,7 @@ module Episodes
         episode_states[:user_id].eq(user.id))
       )
 
-      scope.select([episodes[Arel.star], episode_states[:seen_at]]).joins(join.join_sources)
+      scope.select([ episodes[Arel.star], episode_states[:seen_at] ]).joins(join.join_sources)
     end
 
     private

@@ -1,7 +1,7 @@
 module Api
   module V1
     class SerializableShow < SerializableBase
-      type 'shows'
+      type "shows"
 
       id { @object.slug }
 

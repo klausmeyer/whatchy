@@ -3,7 +3,7 @@ class ShowsController < ApplicationController
     page_title "Explore"
 
     @shows = Show.sorted_by_title
-    @shows = @shows.where('title ILIKE ?', "%#{params[:search]}%") if params.key?(:search)
+    @shows = @shows.where("title ILIKE ?", "%#{params[:search]}%") if params.key?(:search)
     @shows = @shows.page(page)
   end
 

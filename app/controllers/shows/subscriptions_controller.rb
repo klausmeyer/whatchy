@@ -18,6 +18,6 @@ class Shows::SubscriptionsController < ApplicationController
   end
 
   def redirect_success
-    redirect_back fallback_location: shows_path, flash: { success: 'OK' }
+    redirect_back fallback_location: shows_path, flash: { success: "OK" }
   end
 end

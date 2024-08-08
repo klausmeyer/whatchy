@@ -39,7 +39,7 @@ RSpec.describe 'GET /api/v1/shows/subscriptions' do
              title:    show.title,
              image:    "https://cache.example.com#{show.image_url}",
              overview: show.overview,
-             rating:   show.rating,
+             rating:   show.rating
             }
           }
         ],

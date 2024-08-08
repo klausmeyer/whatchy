@@ -6,7 +6,7 @@ module Episodes
 
     def call
       if show.block_sync
-        Rails.logger.info 'Synchronisation skipped as it is disabled for this show.'
+        Rails.logger.info "Synchronisation skipped as it is disabled for this show."
         return
       end
 

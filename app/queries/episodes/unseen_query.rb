@@ -10,7 +10,7 @@ module Episodes
         EpisodeState.arel_table[:user_id].eq(user.id))
       ).join_sources
 
-      parent.episodes.joins(left_outer_join).where('first_aired <= ?', Date.today).where(episode_states: {seen_at: nil})
+      parent.episodes.joins(left_outer_join).where("first_aired <= ?", Date.today).where(episode_states: { seen_at: nil })
     end
 
     private

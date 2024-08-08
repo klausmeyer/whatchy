@@ -8,14 +8,14 @@
 # Configuration details:
 # https://github.com/airbrake/airbrake-ruby#configuration
 Airbrake.configure do |c|
-  c.host = ENV.fetch('AIRBRAKE_HOST', 'https://api.airbrake.io')
+  c.host = ENV.fetch("AIRBRAKE_HOST", "https://api.airbrake.io")
 
   # You must set both project_id & project_key. To find your project_id and
   # project_key navigate to your project's General Settings and copy the values
   # from the right sidebar.
   # https://github.com/airbrake/airbrake-ruby#project_id--project_key
-  c.project_id = ENV.fetch('AIRBRAKE_PROJECT_ID', '999').to_i
-  c.project_key = ENV.fetch('AIRBRAKE_API_KEY', 'airbrake-api-key')
+  c.project_id = ENV.fetch("AIRBRAKE_PROJECT_ID", "999").to_i
+  c.project_key = ENV.fetch("AIRBRAKE_API_KEY", "airbrake-api-key")
 
   # Configures the root directory of your project. Expects a String or a
   # Pathname, which represents the path to your project. Providing this option
@@ -28,11 +28,11 @@ Airbrake.configure do |c|
   # use the Rails' logger.
   # https://github.com/airbrake/airbrake-ruby#logger
   c.logger =
-    if ENV['RAILS_LOG_TO_STDOUT'].present?
+    if ENV["RAILS_LOG_TO_STDOUT"].present?
       Logger.new(STDOUT, level: Rails.logger.level)
     else
       Logger.new(
-        Rails.root.join('log', 'airbrake.log'),
+        Rails.root.join("log", "airbrake.log"),
         level: Rails.logger.level
       )
     end
@@ -55,7 +55,7 @@ Airbrake.configure do |c|
   # Airbrake. By default, all "password" attributes will have their contents
   # replaced.
   # https://github.com/airbrake/airbrake-ruby#blocklist_keys
-  c.blocklist_keys = [/password/i, /authorization/i]
+  c.blocklist_keys = [ /password/i, /authorization/i ]
 
   # Alternatively, you can integrate with Rails' filter_parameters.
   # Read more: https://goo.gl/gqQ1xS
@@ -83,5 +83,5 @@ end
 # Rails.logger = Airbrake::AirbrakeLogger.new(Rails.logger)
 
 Airbrake.add_filter do |notice|
-  notice.ignore! if notice.stash[:exception].is_a?(SignalException) && notice.stash[:exception].signo == Signal.list['TERM']
+  notice.ignore! if notice.stash[:exception].is_a?(SignalException) && notice.stash[:exception].signo == Signal.list["TERM"]
 end

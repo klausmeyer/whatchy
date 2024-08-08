@@ -50,7 +50,7 @@ RSpec.describe 'GET /api/v1/shows/unseen' do
              title:    unseen_show.title,
              image:    "https://cache.example.com#{unseen_show.image_url}",
              overview: unseen_show.overview,
-             rating:   unseen_show.rating,
+             rating:   unseen_show.rating
             }
           }
         ],

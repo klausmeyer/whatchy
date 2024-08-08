@@ -4,9 +4,9 @@ module Api
 
     def jsonapi_class
       Hash.new do |hash, key|
-        names = key.to_s.split('::')
+        names = key.to_s.split("::")
         klass = names.pop
-        hash[key] = [serializeables_namespace, *names, "Serializable#{klass}"].join('::').safe_constantize
+        hash[key] = [ serializeables_namespace, *names, "Serializable#{klass}" ].join("::").safe_constantize
       end
     end
 
@@ -22,7 +22,7 @@ module Api
         last:  pagination_link(collection.limit_value, collection.current_page),
         next:  pagination_link(collection.limit_value, collection.next_page),
         prev:  pagination_link(collection.limit_value, collection.prev_page),
-        self:  pagination_link(collection.limit_value, collection.current_page),
+        self:  pagination_link(collection.limit_value, collection.current_page)
       }
     end
 
@@ -43,7 +43,7 @@ module Api
     def pagination_link(size, number)
       return if number.nil?
 
-      url_for(page: {size: size, number: number})
+      url_for(page: { size: size, number: number })
     end
   end
 end
