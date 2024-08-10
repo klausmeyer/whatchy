@@ -1,7 +1,7 @@
 module Api
   module V1
     class SerializableUser < SerializableBase
-      type 'users'
+      type "users"
 
       id { @object.email }
 

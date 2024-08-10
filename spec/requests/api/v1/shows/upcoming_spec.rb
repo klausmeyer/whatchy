@@ -22,7 +22,7 @@ RSpec.describe 'GET /api/v1/shows/upcoming' do
     end
 
     let(:aired_episode)    { FactoryBot.create :episode, :aired }
-    let(:upcoming_episode) { FactoryBot.create :episode, :upcoming}
+    let(:upcoming_episode) { FactoryBot.create :episode, :upcoming }
     let(:upcoming_show)    { upcoming_episode.show }
 
     before do
@@ -43,7 +43,7 @@ RSpec.describe 'GET /api/v1/shows/upcoming' do
              title:    upcoming_show.title,
              image:    "https://cache.example.com#{upcoming_show.image_url}",
              overview: upcoming_show.overview,
-             rating:   upcoming_show.rating,
+             rating:   upcoming_show.rating
             }
           }
         ],
