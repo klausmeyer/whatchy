@@ -393,7 +393,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   popper_js (< 2)
   puma (>= 5.0)
-  rails (~> 7.2.0)
+  rails (~> 7.2.1)
   rspec-rails (~> 6.0)
   rubocop-rails-omakase
   sassc-rails
