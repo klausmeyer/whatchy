@@ -79,6 +79,6 @@ gem "aws-sdk-s3", require: false
 group :development, :test do
   gem "dotenv-rails", "~> 3.0"
   gem "factory_bot_rails", "~> 6.0"
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 7.0"
   gem "json_spec", "~> 1.1"
 end
