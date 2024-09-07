@@ -224,7 +224,7 @@ GEM
     parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
-    pg (1.5.7)
+    pg (1.5.8)
     popper_js (1.16.1)
     psych (5.1.2)
       stringio
