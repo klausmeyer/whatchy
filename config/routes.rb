@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   use_doorkeeper
 
-  devise_for :users
 
   root to: "home#index"
 
@@ -46,4 +45,6 @@ Rails.application.routes.draw do
   resources :episodes, only: [] do
     resource :state, only: [ :update ], module: :episodes
   end
+
+  devise_for :users
 end

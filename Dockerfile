@@ -25,7 +25,6 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 WORKDIR /var/www/rails/
 
 RUN gem install bundler -v $(grep -A1 "BUNDLED WITH" Gemfile.lock | tail -n1 | tr -d "[:space:]") \
- && bundle config set build.sassc "--disable-march-tune-native" \
  && bundle config set without "development test" \
  && bundle install
 

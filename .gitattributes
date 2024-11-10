@@ -9,4 +9,4 @@ config/credentials/*.yml.enc diff=rails_credentials
 config/credentials.yml.enc diff=rails_credentials
 
 # Mark vendored bootstrap
-app/assets/stylesheets/_theme.scss linguist-vendored
+app/assets/stylesheets/theme.css linguist-vendored

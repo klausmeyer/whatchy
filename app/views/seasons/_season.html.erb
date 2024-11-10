@@ -16,10 +16,12 @@
       <%= render Episodes::WithStatesQuery.new(season.episodes.upcoming.sorted_by_number).for_user(current_user) %>
 
       <p>
-        <% if Episodes::UnseenQuery.new(season).for_user(current_user).any? %>
-          <%= link_to 'Mark all as seen', season_state_path(season, seen: true), method: :put %>
-        <% else %>
-          <%= link_to 'Mark all as unseen', season_state_path(season, seen: false), method: :put %>
+        <%= form_with model: season, url: season_state_path(season), method: :put, data: {turbo: false} do |form| %>
+          <% if Episodes::UnseenQuery.new(season).for_user(current_user).any? %>
+            <%= form.button "Mark all as seen", name: "seen", value: "true", class: "btn btn-sm btn-dark" %>
+          <% else %>
+            <%= form.button "Mark all as unseen", name: "seen", value: "false", class: "btn btn-sm btn-dark" %>
+          <% end %>
         <% end %>
       </p>
     </div>

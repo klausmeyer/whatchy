@@ -1,20 +1,18 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require rails-ujs
-//= require turbolinks
+// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 
-//= require jquery3
-//= require popper
-//= require bootstrap
+import "@hotwired/turbo-rails"
 
-//= require seasons
+import $ from "jquery"
+import "bootstrap"
+
+$(document).on("turbo:load", function (e) {
+  // Open collapse section based on anker in URL
+  if (window.location.hash) {
+    $(window.location.hash).collapse("show");
+  }
+
+  // Update anker in URL on collapse section change
+  $("#season-list").on("show.bs.collapse", function (e) {
+    window.location.hash = e.target.id;
+  });
+});

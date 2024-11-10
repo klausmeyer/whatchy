@@ -6,7 +6,7 @@ RSpec.describe Shows::UnseenQuery do
   describe '#for_user' do
     let(:result) { instance.for_user(user) }
 
-    let(:user) { FactoryBot.create :user }
+    let(:user) { FactoryBot.create :user, :confirmed }
 
     let(:show_seen)            { FactoryBot.create :show }
     let(:show_partly_seen)     { FactoryBot.create :show }

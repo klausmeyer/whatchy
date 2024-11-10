@@ -18,7 +18,7 @@ class ShowsController < ApplicationController
   end
 
   def create
-    redirect_to Shows::Import.new(ref: params[:ref]).call
+    redirect_to Shows::Import.new(ref: params[:ref]).call, status: :see_other
   end
 
   private

@@ -10,8 +10,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
@@ -42,7 +42,7 @@
             <%= link_to profile_path, class: "text-light" do %>
               <%= image_tag "https://www.gravatar.com/avatar/#{current_user.gravatar_hash}?d=mp", class: "rounded-circle mr-2", size: "36x36" %>
             <% end %>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger ml-3' %>
+            <%= link_to 'Logout', destroy_user_session_path, data: {turbo_method: :delete}, class: 'btn btn-sm btn-danger ml-3' %>
           <% end %>
         </div>
       </div>
