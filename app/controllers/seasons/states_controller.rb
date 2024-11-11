@@ -2,7 +2,7 @@ class Seasons::StatesController < ApplicationController
   def update
     service.call
 
-    redirect_to show_path(season.show, anchor: anchor)
+    redirect_to show_path(season.show, anchor: anchor), status: :see_other
   end
 
   private

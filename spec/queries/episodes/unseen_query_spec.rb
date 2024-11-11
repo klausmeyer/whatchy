@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Episodes::UnseenQuery do
   let(:instance) { described_class.new(season) }
 
-  let(:user)   { FactoryBot.create :user }
+  let(:user)   { FactoryBot.create :user, :confirmed }
   let(:show)   { FactoryBot.create :show }
   let(:season) { FactoryBot.create :season, show: show }
 

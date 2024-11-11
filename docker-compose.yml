@@ -1,0 +1,41 @@
+services:
+
+  web:
+    build: .
+    environment:
+      BANNER_CACHE_HOST: https://www.thetvdb.com
+      DATABASE_URL: postgres://postgres:example@postgres/whatchy
+      S3_ACCESS_KEY_ID: minioadmin
+      S3_BUCKET: whatchy
+      S3_ENDPOINT: http://192.168.178.108:9000
+      S3_REGION: us-east-1
+      S3_SECRET_ACCESS_KEY: minioadmin
+      SECRET_KEY_BASE: changeme
+      SMTP_ENABLED: "true"
+      SMTP_PASSWORD: changeme
+      SMTP_PORT: "1025"
+      SMTP_SERVER: mailcatcher
+      SMTP_USERNAME: changeme
+      THETVDB_APIKEY: changeme
+    ports:
+      - "8080:8080"
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: example
+
+  mailcatcher:
+    image: dockage/mailcatcher:0.9.0
+    ports:
+      - "1080:1080"
+
+  minio:
+    image: quay.io/minio/minio:RELEASE.2024-11-07T00-52-20Z
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - "9000:9000"
+      - "9001:9001"

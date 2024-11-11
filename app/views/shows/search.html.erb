@@ -13,7 +13,7 @@
           <h3><%= result.name %></h3>
           <p><%= result.network.presence || '-' %></p>
           <p><%= truncate result.overview, length: 300 %></p>
-          <p><%= link_to 'Add this Show', shows_path(ref: result.id), method: :post, class: "btn btn-primary" %></p>
+          <p><%= link_to 'Add this Show', shows_path(ref: result.id), data: {turbo_method: :post}, class: "btn btn-primary" %></p>
         </div>
       </td>
     </tr>
