@@ -17,7 +17,7 @@ module Shows
           EpisodeState.arel_table[:seen_at].eq(nil))
         )
         .project(Season.arel_table[:show_id])
-      ))
+      )).order(id: :asc)
     end
   end
 end
