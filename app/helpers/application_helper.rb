@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def flash_css_class(type)
+    {
+      "notice" => "info",
+      "alert"  => "warning",
+      "error"  => "danger"
+    }.fetch(type, "primary")
+  end
+
   def cover_url(path)
     if path.present?
       "#{Rails.application.config.x.banner_cache_host}#{path}"
