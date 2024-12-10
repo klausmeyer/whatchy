@@ -3,12 +3,12 @@ FROM ruby:3.3.6-alpine
 LABEL maintainer="Klaus Meyer <spam@klaus-meyer.net>"
 
 ARG SOURCE_COMMIT
-ENV SOURCE_COMMIT $SOURCE_COMMIT
+ENV SOURCE_COMMIT=$SOURCE_COMMIT
 
-ENV PORT 8080
-ENV RAILS_ENV production
-ENV RAILS_SERVE_STATIC_FILES true
-ENV RAILS_LOG_TO_STDOUT true
+ENV PORT=8080
+ENV RAILS_ENV=production
+ENV RAILS_SERVE_STATIC_FILES=true
+ENV RAILS_LOG_TO_STDOUT=true
 
 EXPOSE $PORT
 
@@ -33,8 +33,8 @@ ADD . /var/www/rails/
 RUN SECRET_KEY_BASE=dummyvalue bundle exec rails assets:precompile
 
 RUN addgroup -S rails && adduser -S rails -G rails -h /var/www/rails/ \
- && chown -R rails.rails /var/www/rails/ \
- && chown -R rails.rails /usr/local/bundle
+ && chown -R rails:rails /var/www/rails/ \
+ && chown -R rails:rails /usr/local/bundle
 
 USER rails
 
