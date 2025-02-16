@@ -1,4 +1,4 @@
-FROM ruby:3.4.1-alpine
+FROM ruby:3.4.2-alpine
 
 LABEL maintainer="Klaus Meyer <spam@klaus-meyer.net>"
 
@@ -15,7 +15,7 @@ EXPOSE $PORT
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 RUN apk update \
- && apk add build-base zlib-dev tzdata git openssl-dev shared-mime-info postgresql-dev libc6-compat vips-dev \
+ && apk add build-base zlib-dev tzdata git openssl-dev shared-mime-info postgresql-dev libc6-compat vips-dev yaml-dev \
  && rm -rf /var/cache/apk/* \
  && mkdir -p /var/www/rails
 
