@@ -2,13 +2,13 @@ class ShowsController < ApplicationController
   def index
     page_title "Explore"
 
-    @shows = Show.sorted_by_title
+    @shows = Show.with_counts.includes([ :image_attachment ]).sorted_by_title
     @shows = @shows.where("title ILIKE ?", "%#{params[:search]}%") if params.key?(:search)
     @shows = @shows.page(page)
   end
 
   def show
-    @show = Show.find_by! slug: params[:slug]
+    @show = Show.with_counts.find_by! slug: params[:slug]
 
     page_title @show.title
   end
