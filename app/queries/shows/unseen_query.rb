@@ -3,7 +3,7 @@ module Shows
     def for_user(user, future: false)
       operator = future ? :gt : :lteq
 
-      user.shows.where(Show.arel_table[:id].in(Season.arel_table
+      user.shows.with_counts.includes([ :image_attachment ]).where(Show.arel_table[:id].in(Season.arel_table
         .join(Episode.arel_table).on(
           Episode.arel_table[:season_id].eq(Season.arel_table[:id]).and(
           Episode.arel_table[:first_aired].public_send(operator, Date.today))

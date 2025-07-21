@@ -42,7 +42,7 @@
     <% end %>
 
     <p>
-      This show has <%= pluralize(show.seasons.size, 'season') %> and <%= pluralize(show.episodes.size, 'episode') %>.
+      This show has <%= pluralize(show.seasons_count, 'season') %> and <%= pluralize(show.episodes_count, 'episode') %>.
     </p>
 
     <% if defined?(manage_subscription) && manage_subscription %>

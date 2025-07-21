@@ -36,7 +36,7 @@ RSpec.describe Shows::UnseenQuery do
     end
 
     it 'returns shows with unseen episodes' do
-      expect(result).to eq [ show_partly_seen, show_unseen ]
+      expect(result.pluck(:id)).to eq [ show_partly_seen.id, show_unseen.id ]
     end
   end
 end

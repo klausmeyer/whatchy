@@ -111,6 +111,9 @@ GEM
     bootsnap (1.18.6)
       msgpack (~> 1.2)
     builder (3.3.0)
+    bullet (8.0.8)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.3)
     crass (1.0.6)
@@ -360,6 +363,7 @@ GEM
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
+    uniform_notifier (1.17.0)
     uri (1.0.3)
     useragent (0.16.11)
     warden (1.2.9)
@@ -377,6 +381,7 @@ DEPENDENCIES
   airbrake (~> 13.0.0)
   aws-sdk-s3
   bootsnap
+  bullet (~> 8.0)
   debug
   devise (~> 4.9)
   devise-bootstrap-views (~> 1.1)
