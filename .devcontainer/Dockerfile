@@ -1,1 +1,1 @@
-FROM ghcr.io/rails/devcontainer/images/ruby:3.4.4
+FROM ghcr.io/rails/devcontainer/images/ruby:3.4.5
