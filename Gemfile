@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.1.0"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use postgresql as the database for Active Record
@@ -59,10 +59,13 @@ end
 
 # custom
 
+gem "ostruct" # for tvdb2
+
 gem "jsonapi-rails", "~> 0.4.0"
 gem "doorkeeper", "~> 5.3"
 gem "airbrake", "~> 13.0.0"
-gem "devise", "~> 4.9"
+# gem "devise", "~> 4.9"
+gem "devise", github: "heartcombo/devise", ref: "141ef37" # https://github.com/heartcombo/devise/issues/5794
 gem "devise-bootstrap-views", "~> 1.1"
 gem "kaminari", "~> 1.1"
 gem "tvdb2", github: "pioz/tvdb2", ref: "e720ffb"
