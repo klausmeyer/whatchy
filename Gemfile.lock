@@ -417,7 +417,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   propshaft
   puma (>= 5.0)
-  rails (~> 8.1.0)
+  rails (~> 8.1.2)
   rspec-rails (~> 8.0)
   rubocop-rails-omakase
   thruster

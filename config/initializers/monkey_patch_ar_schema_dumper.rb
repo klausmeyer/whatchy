@@ -20,7 +20,7 @@ module MonkeyPatches
   end
 end
 
-if Rails.version.to_s == "8.1.1"
+if Rails.version.to_s == "8.1.2"
   ActiveRecord::SchemaDumper.prepend MonkeyPatches::DisableSortedColumnsInSchema
 else
   warn "WARNING: It looks like Rails has been changed since `ActiveRecord::SchemaDumper` was monkey-patched in #{__FILE__}. Please re-evaluate the patch."
