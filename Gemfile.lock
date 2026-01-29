@@ -1,16 +1,4 @@
 GIT
-  remote: https://github.com/heartcombo/devise.git
-  revision: 141ef373396a4c19a619a24647bc323dc853c6ac
-  ref: 141ef37
-  specs:
-    devise (5.0.0.beta)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 6.0.0)
-      responders
-      warden (~> 1.2.3)
-
-GIT
   remote: https://github.com/pioz/tvdb2.git
   revision: e720ffbc28656b02a003c9513a3e4948557bfeeb
   ref: e720ffb
@@ -138,6 +126,12 @@ GEM
     debug (1.11.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (5.0.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 7.0)
+      responders
+      warden (~> 1.2.3)
     devise-bootstrap-views (1.1.0)
     diff-lcs (1.6.2)
     doorkeeper (5.8.2)
@@ -402,7 +396,7 @@ DEPENDENCIES
   bootsnap
   bullet (~> 8.0)
   debug
-  devise!
+  devise (~> 5.0)
   devise-bootstrap-views (~> 1.1)
   doorkeeper (~> 5.3)
   dotenv-rails (~> 3.0)
@@ -425,4 +419,4 @@ DEPENDENCIES
   tvdb2!
 
 BUNDLED WITH
-  4.0.3
+  4.0.5

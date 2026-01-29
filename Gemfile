@@ -67,8 +67,7 @@ gem "ostruct" # for tvdb2
 gem "jsonapi-rails", "~> 0.4.0"
 gem "doorkeeper", "~> 5.3"
 gem "airbrake", "~> 13.0.0"
-# gem "devise", "~> 4.9"
-gem "devise", github: "heartcombo/devise", ref: "141ef37" # https://github.com/heartcombo/devise/issues/5794
+gem "devise", "~> 5.0"
 gem "devise-bootstrap-views", "~> 1.1"
 gem "kaminari", "~> 1.1"
 gem "tvdb2", github: "pioz/tvdb2", ref: "e720ffb"
