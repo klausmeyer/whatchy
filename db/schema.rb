@@ -15,24 +15,24 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_23_133352) do
   enable_extension "pg_catalog.plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.bigint "record_id", null: false
+    t.string "record_type", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
   create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.string "service_name", null: false
     t.bigint "byte_size", null: false
     t.string "checksum"
+    t.string "content_type"
     t.datetime "created_at", null: false
+    t.string "filename", null: false
+    t.string "key", null: false
+    t.text "metadata"
+    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -43,49 +43,49 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_23_133352) do
   end
 
   create_table "episode_states", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
     t.bigint "episode_id", null: false
     t.datetime "seen_at", precision: nil
-    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["episode_id"], name: "index_episode_states_on_episode_id"
     t.index ["user_id"], name: "index_episode_states_on_user_id"
   end
 
   create_table "episodes", force: :cascade do |t|
-    t.bigint "season_id", null: false
-    t.integer "number"
-    t.string "title"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.date "first_aired"
+    t.integer "number"
+    t.bigint "season_id", null: false
+    t.string "title"
+    t.datetime "updated_at", null: false
     t.index ["season_id"], name: "index_episodes_on_season_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
-    t.bigint "resource_owner_id", null: false
     t.bigint "application_id", null: false
-    t.string "token", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.integer "expires_in", null: false
     t.text "redirect_uri", null: false
-    t.datetime "created_at", precision: nil, null: false
+    t.bigint "resource_owner_id", null: false
     t.datetime "revoked_at", precision: nil
     t.string "scopes", default: "", null: false
+    t.string "token", null: false
     t.index ["application_id"], name: "index_oauth_access_grants_on_application_id"
     t.index ["resource_owner_id"], name: "index_oauth_access_grants_on_resource_owner_id"
     t.index ["token"], name: "index_oauth_access_grants_on_token", unique: true
   end
 
   create_table "oauth_access_tokens", force: :cascade do |t|
-    t.bigint "resource_owner_id"
     t.bigint "application_id", null: false
-    t.string "token", null: false
-    t.string "refresh_token"
-    t.integer "expires_in"
-    t.datetime "revoked_at", precision: nil
     t.datetime "created_at", precision: nil, null: false
-    t.string "scopes"
+    t.integer "expires_in"
     t.string "previous_refresh_token", default: "", null: false
+    t.string "refresh_token"
+    t.bigint "resource_owner_id"
+    t.datetime "revoked_at", precision: nil
+    t.string "scopes"
+    t.string "token", null: false
     t.index ["application_id"], name: "index_oauth_access_tokens_on_application_id"
     t.index ["refresh_token"], name: "index_oauth_access_tokens_on_refresh_token", unique: true
     t.index ["resource_owner_id"], name: "index_oauth_access_tokens_on_resource_owner_id"
@@ -93,64 +93,64 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_23_133352) do
   end
 
   create_table "oauth_applications", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "uid", null: false
-    t.string "secret", null: false
-    t.text "redirect_uri"
-    t.string "scopes", default: "", null: false
     t.boolean "confidential", default: true, null: false
     t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.text "redirect_uri"
+    t.string "scopes", default: "", null: false
+    t.string "secret", null: false
+    t.string "uid", null: false
     t.datetime "updated_at", null: false
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
   create_table "seasons", force: :cascade do |t|
-    t.bigint "show_id", null: false
-    t.integer "number"
     t.datetime "created_at", null: false
+    t.integer "number"
+    t.bigint "show_id", null: false
     t.datetime "updated_at", null: false
     t.index ["show_id"], name: "index_seasons_on_show_id"
   end
 
   create_table "shows", force: :cascade do |t|
+    t.boolean "block_sync", default: false, null: false
+    t.datetime "created_at", null: false
+    t.string "image_url"
+    t.string "imdb_ref"
+    t.string "language", default: "en", null: false
+    t.string "network"
+    t.text "overview"
+    t.decimal "rating", precision: 3, scale: 1, default: "0.0", null: false
+    t.string "slug", default: -> { "md5((random())::text)" }, null: false
     t.string "thetvdb_ref"
     t.string "title"
-    t.string "image_url"
-    t.text "overview"
-    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug", default: -> { "md5((random())::text)" }, null: false
-    t.boolean "block_sync", default: false, null: false
-    t.string "language", default: "en", null: false
-    t.string "imdb_ref"
-    t.decimal "rating", precision: 3, scale: 1, default: "0.0", null: false
-    t.string "network"
     t.index ["slug"], name: "index_shows_on_slug", unique: true
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "show_id", null: false
     t.datetime "created_at", null: false
+    t.bigint "show_id", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["show_id"], name: "index_subscriptions_on_show_id"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: nil
-    t.datetime "remember_created_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.string "confirmation_token"
     t.datetime "confirmed_at", precision: nil
-    t.datetime "confirmation_sent_at", precision: nil
-    t.string "unconfirmed_email"
-    t.integer "failed_attempts", default: 0, null: false
-    t.string "unlock_token"
-    t.datetime "locked_at", precision: nil
     t.datetime "created_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.integer "failed_attempts", default: 0, null: false
+    t.datetime "locked_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "reset_password_sent_at", precision: nil
+    t.string "reset_password_token"
+    t.string "unconfirmed_email"
+    t.string "unlock_token"
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
