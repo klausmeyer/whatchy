@@ -9,10 +9,10 @@ namespace :thetvdb do
       attempt += 1
       retry if attempt <= 3
       puts "ERROR: #{e.inspect}"
-      Airbrake.notify(e)
+      Appsignal.report_error(e)
     rescue RuntimeError => e
       puts "ERROR: #{e.inspect}"
-      Airbrake.notify(e)
+      Appsignal.report_error(e)
     end
   end
 end
