@@ -84,10 +84,6 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
-    airbrake (13.0.5)
-      airbrake-ruby (~> 6.0)
-    airbrake-ruby (6.2.2)
-      rbtree3 (~> 0.6)
     appsignal (4.8.4)
       logger
       rack (>= 2.0.0)
@@ -303,7 +299,6 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.3.1)
-    rbtree3 (0.7.1)
     rdoc (7.2.0)
       erb
       psych (>= 4.0.0)
@@ -396,7 +391,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake (~> 13.0.0)
   appsignal
   aws-sdk-s3
   bootsnap

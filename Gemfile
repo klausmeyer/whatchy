@@ -66,14 +66,13 @@ gem "ostruct" # for tvdb2
 
 gem "jsonapi-rails", "~> 0.4.0"
 gem "doorkeeper", "~> 5.3"
-gem "airbrake", "~> 13.0.0"
+gem "appsignal"
 gem "devise", "~> 5.0"
 gem "devise-bootstrap-views", "~> 1.1"
 gem "kaminari", "~> 1.1"
 gem "tvdb2", github: "pioz/tvdb2", ref: "e720ffb"
 gem "health_check", "~> 3.1"
 gem "aws-sdk-s3", require: false
-gem "appsignal"
 
 group :development do
   gem "bullet", "~> 8.0"
