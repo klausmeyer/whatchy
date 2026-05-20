@@ -64,8 +64,6 @@ end
 
 gem "ostruct" # for tvdb2
 
-gem "jsonapi-rails", "~> 0.4.0"
-gem "doorkeeper", "~> 5.3"
 gem "appsignal"
 gem "devise", "~> 5.0"
 gem "devise-bootstrap-views", "~> 1.1"

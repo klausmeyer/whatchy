@@ -1,25 +1,7 @@
 Rails.application.routes.draw do
-  use_doorkeeper
-
-
   root to: "home#index"
 
   get :ping, to: ->(env) { [ "200", { "Content-Type" => "text/plain" }, [ "pong" ] ] }
-
-  namespace :api do
-    namespace :v1 do
-      resource :user, only: [ :show ]
-      namespace :shows do
-        resources :subscriptions, only: [ :index ]
-        resources :unseen, only: [ :index ]
-        resources :upcoming, only: [ :index ]
-
-        scope ":show_slug" do
-          resources :episodes, only: [ :index ]
-        end
-      end
-    end
-  end
 
   resources :activities, only: [ :index ]
 
