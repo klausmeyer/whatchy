@@ -23,10 +23,6 @@ class ShowsController < ApplicationController
 
   private
 
-  def page
-    params[:page] || 1
-  end
-
   def thetvdb
     @thetvdb ||= TVDB.new(apikey: Rails.application.config.x.thetvdb_apikey)
   end
