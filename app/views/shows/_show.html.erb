@@ -53,6 +53,14 @@
       <% end %>
     <% end %>
 
+    <% if defined?(manage_favourites) && manage_favourites %>
+      <% if current_user.favourites.where(show: show).none? %>
+        <%= link_to "Add to favourites", show_favourite_path(show, seen: true), data: {turbo_method: :post}, class: "btn btn-link" %>
+      <% else %>
+        <%= link_to "Remove from favourites", show_favourite_path(show, seen: false), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-link" %>
+      <% end %>
+    <% end %>
+
     <% if defined?(manage_seen_state) && manage_seen_state %>
       <% if unseen_episodes.any? %>
         <%= link_to "Mark as seen", show_state_path(show, seen: true), data: {turbo_method: :put}, class: "btn btn-link" %>

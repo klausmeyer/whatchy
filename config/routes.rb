@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :activities, only: [ :index ]
 
+  resources :favourites, only: [ :index ]
+
   resource :profile, only: [ :show ]
 
   resources :subscriptions, only: [ :index ] do
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
 
     scope module: :shows do
       resource :subscription, only: [ :create, :destroy ]
+      resource :favourite, only: [ :create, :destroy ]
       resource :state, only: [ :update ]
     end
   end

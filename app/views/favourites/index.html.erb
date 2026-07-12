@@ -1,8 +1,8 @@
 <div class="d-flex align-items-center justify-content-between">
   <div>
-    <h2>Your Shows</h2>
+    <h2>Favourites</h2>
     <p>
-      Here are the shows you have subscribed to.
+      Here are your favourite shows.
     </p>
   </div>
 </div>
@@ -14,8 +14,7 @@
   <%= paginate @shows %>
 <% else %>
   <div class="text-center bg-light my-5 py-5">
-    <h2>Howdy</h2>
-    <p>You don't have any active subscriptions.</p>
-    <%= link_to "Add Show", shows_path, class: "btn btn-sm btn-outline-primary" %>
+    <h2>Oh no!</h2>
+    <p>You don't have any favourites.</p>
   </div>
 <% end %>

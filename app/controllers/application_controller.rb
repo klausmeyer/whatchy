@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
   def app_name
     Rails.application.class.module_parent.name
   end
+
+  def page
+    params[:page] || 1
+  end
 end

@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :subscriptions, dependent: :destroy
+  has_many :favourites, dependent: :destroy
   has_many :shows, through: :subscriptions
+  has_many :favourite_shows, through: :favourites, source: :show
   has_many :episode_states, dependent: :destroy
 
   def gravatar_hash

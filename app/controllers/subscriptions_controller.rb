@@ -12,10 +12,4 @@ class SubscriptionsController < ApplicationController
 
     @shows = Shows::UnseenQuery.new.for_user(current_user, future: true).sorted_by_title.page(page)
   end
-
-  private
-
-  def page
-    params[:page] || 1
-  end
 end
