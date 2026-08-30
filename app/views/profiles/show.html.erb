@@ -1,9 +1,13 @@
 <h2>Profile</h2>
 
-<p>Here you can change details of your registration:</p>
+<p><%= @user.email %></p>
 
-<p>
-  <ul>
-    <li><%= link_to 'Change E-Mail or Password', edit_user_registration_path %></li>
-  </ul>
-</p>
+<p><%= link_to 'Change E-Mail or Password', edit_user_registration_path %></p>
+
+<h3>Linked OIDC Accounts</h3>
+
+<ul>
+  <% @user.oidc_identities.each do |identity| %>
+    <li><%= identity.email || identity.uid %> via <%= identity.issuer %></li>
+  <% end %>
+</ul>

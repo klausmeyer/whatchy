@@ -28,6 +28,11 @@ The following environment variables are available:
 | `SMTP_PORT`           |     -     |            587            | Port of the mail server.                                    |
 | `SMTP_USERNAME`       |     -     |             -             | Username for the mail server.                               |
 | `SMTP_PASSWORD`       |     -     |             -             | Password for the mail server.                               |
+| `OIDC_ISSUER`         |     -     |             -             | OIDC issuer URL, for example `https://idp.example.ts.net`.   |
+| `OIDC_CLIENT_ID`      |     -     |             -             | OIDC client ID.                                             |
+| `OIDC_CLIENT_SECRET`  |     -     |             -             | OIDC client secret.                                         |
+| `OIDC_REDIRECT_URI`   |     -     |             -             | Explicit OIDC callback URL, if the default needs overriding. |
+| `OIDC_PROVIDER_NAME`  |     -     |           OIDC            | Display name for the OIDC sign-in button.                   |
 | `RAILS_LOG_TO_STDOUT` |     -     |             -             | Log to process standard out (`true`/`false`).               |
 | `THETVDB_APIKEY`      |     x     |             -             | API key for [thetvdb.com](https://thetvdb.com).             |
 

@@ -33,5 +33,11 @@ Rails.application.routes.draw do
     resource :state, only: [ :update ], module: :episodes
   end
 
-  devise_for :users
+  get "users/auth/openid_connect", to: redirect("/users/sign_in")
+
+  devise_for :users,
+             controllers: {
+               omniauth_callbacks: "users/omniauth_callbacks",
+               sessions: "users/sessions"
+             }
 end
