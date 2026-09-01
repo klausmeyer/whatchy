@@ -67,6 +67,8 @@ gem "ostruct" # for tvdb2
 gem "appsignal"
 gem "devise", "~> 5.0"
 gem "devise-bootstrap-views", "~> 1.1"
+gem "omniauth-rails_csrf_protection", "~> 2.0"
+gem "omniauth_openid_connect", "~> 0.8"
 gem "kaminari", "~> 1.1"
 gem "tvdb2", github: "pioz/tvdb2", ref: "e720ffb"
 gem "aws-sdk-s3", require: false
