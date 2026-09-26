@@ -74,6 +74,8 @@ gem "tvdb2", github: "pioz/tvdb2", ref: "e720ffb"
 gem "aws-sdk-s3", require: false
 gem "ruby-vips", "~> 2.3"
 
+gem "json", "< 3"
+
 group :development do
   gem "bullet", "~> 8.0"
 end
